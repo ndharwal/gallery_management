@@ -1,0 +1,178 @@
+@font-face {
+     font-family: 'caviar_dreamsbold';
+     src:url(../assets/Caviar_Dreams_Bold-webfont.ttf) format('truetype');
+}
+.navbar,.glyphicon-log-in,.glyphicon-log-out{
+	font-family: 'caviar_dreamsbold';
+}
+.navbar{
+	box-shadow:5px 10px 20px #707070;
+}
+.navbar-brand{
+margin-top: 10px;
+float: right;
+}
+.logo{
+	margin-top:10px;
+	width: 100px;
+	height: 50px;
+	float:left;	
+}
+.social{
+	width: 25px;
+	height: 25px;
+	float :left;
+}
+.form-horizontal{
+	margin-top: 180px;
+}
+.sub{
+	background-color: lightgrey;
+	width:310px;
+}
+.col-sm-offset-4{
+	margin-left: 520px;
+}
+/*****Login and signup page css*****/
+.body{
+	position: absolute;                 /*login and signup background effect*/
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
+	background-size: cover;
+	z-index: 0;
+	 filter: blur(20px);
+}
+.e1,.p1{
+background: transparent;
+border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
+	border-radius: 2px;
+	color: black;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+
+}
+.log{
+	background: #fff;
+	border: 1px solid #fff;
+	border-radius: 2px;
+	color: #a18d6c;                  /*login and signup button effect*/
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+}
+.log:hover{
+	border: 2px solid MediumSpringGreen; /*login and signup button effect*/
+}
+/*****end*****/
+
+/*****gallery page css*****/
+#content
+{
+	background-color: #f7f7f7;
+	height:700px;
+}
+#picturelist {
+	text-align:center;
+	margin-right:auto;
+	margin-left:auto;
+}
+#picturelist1,.image_view {
+	list-style:none;
+	float:left;
+	margin:42px;
+	font-weight:bold;
+	color:#777777;
+}
+
+#picturelist img{
+	display:block;
+	border:2px solid gray;
+	width:200px;                  /*image gallery effect*/
+	height:200px;
+	-webkit-transform:scale(0.8); /*Webkit: Scale down image to 0.8x original size*/
+	-moz-transform:scale(0.8); /*Mozilla scale version*/
+	-o-transform:scale(0.8); /*Opera scale version*/
+	-webkit-transition-duration: 0.5s; /*Webkit: Animation duration*/
+	-moz-transition-duration: 0.5s; /*Mozilla duration version*/
+	-o-transition-duration: 0.5s; /*Opera duration version*/
+	opacity:1.7; /*initial opacity of images*/
+}
+#picturelist img:hover{
+	-webkit-transform:scale(1.0); /*Webkit: Scale up image to 1.2x original size*/
+	-moz-transform:scale(1.0); /*Mozilla scale version*/
+	-o-transform:scale(1.0); /*Opera scale version*/
+	box-shadow:0px 0px 20px gray; /*CSS3 shadow: 30px blurred shadow all around image*/
+	-webkit-box-shadow:0px 0px 20px gray; /*Safari shadow version*/
+	-moz-box-shadow:0px 0px 20px gray; /*Mozilla shadow version*/
+	opacity: 1;
+}
+/*****end*****/
+
+/*****Album page css*****/
+
+#picturelist1 img{
+	display:block;
+	border:2px solid gray;
+	width:200px;                  /*image gallery effect*/
+	height:200px;
+	opacity:1.7; /*initial opacity of images*/
+}
+#picturelist1{
+	text-align:center;
+	margin-right:auto;
+	margin-left:auto;
+}
+#picturelist1,.image_view {
+	list-style:none;
+	float:left;
+	font-weight:bold;
+	color:#777777;
+}
+.upload{
+	margin-top: 120px;
+}
+.upload1{
+	margin-top: 80px;
+	 
+}
+.newalbum{
+	margin-top: 0px;
+}
+#cen{
+	text-align: center;
+}
+.alert{
+	text-align: center;
+	margin-top: 50px;
+	font-size:20px; 
+}
+.alert1{
+	text-align: center;
+	margin-top: 80px;
+	font-size:20px; 
+}
+strong{
+	color:lightpink;
+	text-transform: capitalize;
+}
+.jumbotron{
+	box-shadow: 10px 10px 5px #888888;	
+}
+#cen,.jumbotron,.alert{
+	font-family: 'caviar_dreamsbold';	
+}
+/*images new page*/
+.images{
+	margin-left: auto;
+	margin-right: auto;
+	display: inline-block;
+}
+#browes{
+	margin-left:45%;
+	margin-top: 20px;
+}
+/*end*/

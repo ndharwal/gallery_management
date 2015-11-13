@@ -1,0 +1,11 @@
+<div class="body"></div>
+  <%= render "home/header" %>
+  <div class="form-horizontal col-sm-offset-3">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <%= render "loginform", f: f %>
+    <% end %>
+  </div>
+  <div class="col-sm-offset-4">
+    <%= render "users/shared/links" %>
+  </div>

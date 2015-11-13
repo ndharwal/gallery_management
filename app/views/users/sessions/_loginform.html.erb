@@ -1,0 +1,31 @@
+ <div class="field form-group">
+  <%= f.label :email, class: 'col-sm-2 control-label' %>
+  <div class="col-sm-4">
+    <%= f.email_field :email, class: 'form-control e1', required: true %>
+  </div>
+</div>
+<div class="field form-group">
+  <%= f.label :password, class: 'col-sm-2 control-label' %>
+  <div class="col-sm-4">
+    <%= f.password_field :password, class: 'form-control p1', required: true %>
+  </div>
+</div>
+  <% if devise_mapping.rememberable? -%>
+  <div class="form-group">        
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+      <label><input type="checkbox"> Remember me</label>
+      </div>
+    </div>
+  </div>
+<% end -%>
+<div class="form-group action">        
+  <div class="col-sm-offset-2 col-sm-10">
+     <%= f.submit "Login", class:"btn sub log btn-default" %>
+  </div>
+</div>
+<div class="form-group action">        
+  <div class="col-sm-offset-2 col-sm-10">
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+  </div>
+</div>

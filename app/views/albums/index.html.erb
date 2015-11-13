@@ -1,0 +1,23 @@
+<%= render 'home/headerup_in' %>
+<%= render 'home/flash' %>
+<div id ="container"> 
+  <div id="content">
+    <ul id="picturelist1">
+      <% current_user.albums.where(params[:id]).each do |f| %>
+        <li class="image_view">
+          <%= f.title %>
+          <%= link_to image_tag "1.jpeg" %>
+          <%= link_to new_album_image_path(:album_id) do %>    
+            <span class="glyphicon glyphicon-open"></span>
+          <% end %>
+          <%= link_to edit_album_path(:id) do%>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+          <%= link_to album_path(:id),:method => :delete , data: { confirm: 'Are you sure?' } do%>
+            <span class="glyphicon glyphicon-remove"></span>  
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
