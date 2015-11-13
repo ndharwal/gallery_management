@@ -1,0 +1,18 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= image_tag "Dice.png", class: 'logo' %>
+      <a class="navbar-brand" href="#">Wellcome To Photo Gallery </a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav pull-right">
+          <li ><%= link_to image_tag "facebook.png", class: 'social' %></li>
+          <li ><%= link_to image_tag "twitter.png",  class: 'social' %></li>
+          <li ><%= link_to image_tag "linkedin.png", class: 'social'  %></li>
+        <li><%= link_to "Home", class: 'glyphicon glyphicon-home' %></li>
+        <li><%= link_to " SignIn", new_user_session_path, :method => :get, class: 'glyphicon glyphicon-log-in' %></li>
+        <li><%= link_to "SignUp", new_user_registration_path, :method => :get, class: 'glyphicon glyphicon-user' %></li>
+      </ul>
+    </div>
+  </div>
+</nav>

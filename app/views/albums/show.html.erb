@@ -1,0 +1,12 @@
+<%= render 'home/flash' %> 
+<%= render 'home/headerup_in' %>
+<div class="alert1">
+  <% current_user.albums.where(params[:id]) %>
+  <h3>Hello <strong><%= current_user.fname %></strong><br>you have created a album <strong><%= @album.title %></strong><br></h3>
+  <h3>and your album description is <strong><%= @album.description %></strong></h3>
+  <li><%= link_to "Upload image", new_album_image_path(params[:id]) %></li>
+</div>
+     
+
+
+ 
