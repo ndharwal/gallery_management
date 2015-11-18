@@ -13,7 +13,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = current_user.albums.build(album_params)
+    @album = current_user.albums.new(album_params)
     if @album.save
       flash[:notice] = "Successfully Album created"
       redirect_to user_albums_path(current_user.id)
@@ -23,7 +23,6 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    
     @album = current_user.albums.where(:id => params[:id]).first
     if @album.destroy
       flash[:notice] = "Album Successfuly Deleted" 
@@ -39,19 +38,17 @@ class AlbumsController < ApplicationController
 
   def update
     @album = current_user.albums.where(:id => params[:id]).first
-    if @album.update_attributes(album_params)
-      flash[:success] = "Successfuly Updated"
-    
+      if @album.update_attributes(album_params)
+        flash[:success] = "Successfuly Updated"
       redirect_to user_albums_path(current_user.id)
-
       else
-      render 'edit' 
+        render 'edit' 
     end
   end
 
   private
 
-    def album_params
-      params.require(:album).permit(:title, :description, :user_id, :id)
-    end
+  def album_params
+    params.require(:album).permit(:title, :description, :user_id, :id)
+  end
 end

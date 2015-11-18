@@ -21,6 +21,7 @@ class ImagesController < ApplicationController
   def update
   end
 
+
   def destroy    
     @image = Image.where(:id => params[:id]).first
       if @image.destroy
@@ -32,15 +33,17 @@ class ImagesController < ApplicationController
   end
 
   def show
-    @image = Image.where(:album_id => params[:album_id]).take    
+    @image = Image.where(:album_id => params[:album_id]).first
   end
 
   def edit
   end
 
-  private
-  def image_params
-      params.require(:image).permit(:img_name, :img_url, :img_size, :album_id, :id, :photo)
-    end
 
+  private
+  
+  def image_params
+    params.require(:image).permit(:img_name, :img_url, :img_size, :album_id, :id, :photo)
+  end
+    
 end

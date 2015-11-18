@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :home
   resources :user, :shallow => true do
     resources :albums, :shallow => true do
-    resources :images
+      resources :images
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

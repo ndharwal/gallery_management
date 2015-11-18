@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109063323) do
+ActiveRecord::Schema.define(version: 20151116114719) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "title"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20151109063323) do
     t.integer  "album_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "photo"
   end
 
   add_index "images", ["album_id"], name: "index_images_on_album_id"
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 20151109063323) do
     t.string   "fname"
     t.string   "lname"
     t.integer  "contact"
+    t.string   "profile_pic"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
