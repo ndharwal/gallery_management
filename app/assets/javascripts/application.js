@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require fancybox
+//= require pop-ups
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .

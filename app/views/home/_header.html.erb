@@ -9,10 +9,45 @@
           <li ><%= link_to image_tag "facebook.png", class: 'social' %></li>
           <li ><%= link_to image_tag "twitter.png",  class: 'social' %></li>
           <li ><%= link_to image_tag "linkedin.png", class: 'social'  %></li>
-        <li><%= link_to "Home", class: 'glyphicon glyphicon-home' %></li>
-        <li><%= link_to " SignIn", new_user_session_path, :method => :get, class: 'glyphicon glyphicon-log-in' %></li>
-        <li><%= link_to "SignUp", new_user_registration_path, :method => :get, class: 'glyphicon glyphicon-user' %></li>
+          <li><%= link_to "Home", class: 'glyphicon glyphicon-home' %></li>
+           <li> <a href="#" id="about">Login</a> </li>
+           <li> <a href="#" id="projects">SignUp</a> </li>
+          <li><%= link_to "AboutUs" %></li>
+          <li> <a href="#" id="contact">Contact</a> </li>
       </ul>
     </div>
   </div>
 </nav>
+<!-- contact poup-->
+<article id="popupContact" class="popupContact">
+  <div class="customScrollBox">
+    <div class="content"> <a id="popupContactClose"><button type="button" class="cros" data-dismiss="modal">&times;</button></a>
+      <%= render 'home/contactpop' %>
+   </div>
+  </div>
+</article>
+<!--end -->
+<!-- about poup-->
+<article id="popupAbout" class="popupAbout">
+  <div class="customScrollBox">
+    <div class="content"> <a id="popupAboutClose"><button type="button" class="cros" data-dismiss="modal">&times;</button></a>
+      <%= render 'home/loginpop' %>
+    </div>
+  </div>
+</article>
+<!--end -->
+<!-- login poup-->
+<article id="popupProjects" class="popupProjects">
+  <div class="customScrollBox">
+     <div class="content"> <a id="popupProjectsClose"><button type="button" class="cros" data-dismiss="modal">&times;</button></a>
+      <%= render 'home/signuppop' %>
+    </div>
+ </div>
+</article>
+<!--end -->
+<!-- signup poup-->
+<article id="popupBlog" class="popupContact">
+  <div class="customScrollBox">
+ </div>
+</article>
+<!--end -->

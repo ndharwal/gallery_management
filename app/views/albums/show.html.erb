@@ -1,8 +1,15 @@
 <%= render 'home/flash' %> 
 <%= render 'home/headerup_in' %>
 <div class="alert1">
-  <% current_user.albums.where(params[:id]) %>
-  <h3>Hello <strong><%= current_user.fname %></strong><br>you have created a album <strong><%= @album.title %></strong><br></h3>
-  <h3>and your album description is <strong><%= @album.description %></strong></h3>
-  <li><%= link_to "Upload image", new_album_image_path(params[:id]) %></li>
+  <div class="content">
+    <div class="grid1" id="me">
+      <%= image_tag current_user.profile_pic_url(), class: 'pic' %>
+      <% current_user.albums.where(params[:id]) %>  
+      <h3>Hello <b><%= current_user.fname %></b></h3><br>
+      <p>you have created a album <b><%= @album.title %></b></p><br>
+      <p>and your album description is <b><%= @album.description %></b></p>      
+    </div>
+    <%= link_to "edit profile", edit_user_registration_path(current_user) %> 
+    <%= link_to "Upload image", new_album_image_path(params[:id]) %>
+  </div>
 </div>

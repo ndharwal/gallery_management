@@ -29,7 +29,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.5.2'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'carrierwave'
+gem 'rmagick'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

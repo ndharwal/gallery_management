@@ -4,6 +4,9 @@
     <%= image_tag "Dice.png", class: 'logo' %>
       <a class="navbar-brand" href="#">Welcome <strong><%= current_user.fname %> </strong></a>
     </div>
+    <% if current_user.profile_pic.present? %>
+    <%= image_tag current_user.profile_pic_url(), class: 'profile' %>
+    <% end %>
     <div>
       <ul class="nav navbar-nav pull-right">
           <li ><%= link_to image_tag "facebook.png", class: 'social' %></li>
@@ -11,8 +14,10 @@
           <li ><%= link_to image_tag "linkedin.png", class: 'social' %></li>
          <li><%= link_to "Home", home_index_path%></li>
          <% if current_user.albums.present? %>
-          <li><%= link_to "Album", user_albums_path(current_user.id)%> 
-          <% end %></li>
+          <li class="badge1">
+            <span class="badge bg-green"><%= current_user.albums.count %></span>
+            <%= link_to "Album", user_albums_path(current_user.id), class: 'badge2' %> 
+          </li><% end %>
           <li><%= link_to " SignOut", destroy_user_session_path, :method => :delete, class:"glyphicon glyphicon-log-out" %></li>
       </ul>
     </div>

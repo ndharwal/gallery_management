@@ -1,18 +1,29 @@
-@font-face {
+@font-face 
+{
      font-family: 'caviar_dreamsbold';
      src:url(../assets/Caviar_Dreams_Bold-webfont.ttf) format('truetype');
 }
-.navbar,.glyphicon-log-in,.glyphicon-log-out,.glyphicon-user{
+.navbar,.glyphicon-log-in,.glyphicon-log-out,.glyphicon-user
+{
 	font-family: 'caviar_dreamsbold';
 }
-.navbar{
+.navbar
+{
 	box-shadow:5px 10px 20px #707070;
 }
-.navbar-brand{
+.pic
+{
+	width:180px;
+	height:200px;
+	border-radius: 60px;
+}
+.navbar-brand
+{
 margin-top: 10px;
 float: right;
 }
-.logo{
+.logo
+{
 	margin-top:10px;
 	width: 100px;
 	height: 50px;
@@ -22,7 +33,7 @@ float: right;
 .profile{
 	border-radius: 5px;
 	margin-top:10px;
-	width: 100px;
+	width: 40px;
 	height: 50px;
 	float:right;	
 }
@@ -32,10 +43,43 @@ float: right;
 	height: 25px;
 	float :left;
 }
-.form-horizontal{
-	margin-top: 180px;
+.form-horizontal
+{
+	margin-top: 130px;
+	
 }
-.sub{
+.formpop{
+	margin-top: 0px;
+}
+.badge1
+{
+	width: 120px;
+	margin-left: 5px;
+	 word-spacing: -5px;
+}
+.badge
+{
+	width:5px;
+	margin-right: 20px;
+	margin-top:15px;
+	float:right;
+	display: inline;
+	padding-right:22px;
+	letter-spacing: -100px;
+	background-color: SlateGray;
+	color: white;
+	font-weight: bold;
+	font-weight: strong;
+}
+.badge2
+{
+	float:left;
+	display: inline;
+	padding-left:30px;
+
+}
+.sub
+{
 	background-color: lightgrey;
 	width:310px;
 }
@@ -43,18 +87,38 @@ float: right;
 	margin-left: 520px;
 }
 /*****Login and signup page css*****/
-.body{
+.body
+{
 	position: absolute;                 /*login and signup background effect*/
 	top: -20px;
 	left: -20px;
 	right: -40px;
 	bottom: -40px;
-	background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
+	background: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg) repeat-x;
 	background-size: cover;
 	z-index: 0;
 	 filter: blur(20px);
+  	height: 800px;
+ 	width: 1376px;
+  animation: slide 40s linear infinite;
 }
-.e1,.p1{
+
+/*Chrome, Safari, Opera */
+@-webkit-keyframes slide {
+    0%   {background: url(http://www.successcorners.com/wp-content/uploads/2015/06/website-background-wincustomize-explore-clouds-284048.jpg);}
+    25%  {background: url(http://www.bigfatmarketing.com/wp-content/uploads/2014/09/web-background-website-linux-freedom-upgrade-187984.jpg);}
+    50%  {background: url(http://freedwallpaper.com/wp-content/uploads/2014/09/background-wallpapers-1862885229.jpg);}
+    100% {background: url(http://thumbs.dreamstime.com/z/seamless-abstract-pattern-blue-background-textiles-interior-design-book-design-website-34311830.jpg);}
+}
+@keyframes slide {
+    0%   {background: url(http://www.successcorners.com/wp-content/uploads/2015/06/website-background-wincustomize-explore-clouds-284048.jpg);}
+    25%  {background: url(http://www.bigfatmarketing.com/wp-content/uploads/2014/09/web-background-website-linux-freedom-upgrade-187984.jpg);}
+    50%  {background: url(http://freedwallpaper.com/wp-content/uploads/2014/09/background-wallpapers-1862885229.jpg);}
+    100% {background: url(http://thumbs.dreamstime.com/z/seamless-abstract-pattern-blue-background-textiles-interior-design-book-design-website-34311830.jpg);}
+}
+
+.e1,.p1
+{
 background: transparent;
 border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	border-radius: 2px;
@@ -64,7 +128,17 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	font-weight: 400;
 
 }
-.log{
+.e2,.p2{
+border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
+	border-radius: 2px;
+	color: black;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+
+}
+.log
+{
 	background: #fff;
 	border: 1px solid #fff;
 	border-radius: 2px;
@@ -73,8 +147,12 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	font-size: 16px;
 	font-weight: 400;
 }
-.log:hover{
+.log:hover
+{
 	border: 2px solid MediumSpringGreen; /*login and signup button effect*/
+}
+.log1{
+	width: 255px;
 }
 /*****end*****/
 
@@ -84,12 +162,14 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	background-color: #f7f7f7;
 	height:700px;
 }
-#picturelist {
+#picturelist
+ {
 	text-align:center;
 	margin-right:auto;
 	margin-left:auto;
 }
-#picturelist1,.image_view {
+#picturelist1,.image_view
+ {
 	list-style:none;
 	float:left;
 	margin:42px;
@@ -97,7 +177,8 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	color:#777777;
 }
 
-#picturelist img{
+#picturelist img
+{
 	display:block;
 	border:2px solid gray;
 	width:200px;                  /*image gallery effect*/
@@ -110,7 +191,8 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	-o-transition-duration: 0.5s; /*Opera duration version*/
 	opacity:1.7; /*initial opacity of images*/
 }
-#picturelist img:hover{
+#picturelist img:hover
+{
 	-webkit-transform:scale(1.0); /*Webkit: Scale up image to 1.2x original size*/
 	-moz-transform:scale(1.0); /*Mozilla scale version*/
 	-o-transform:scale(1.0); /*Opera scale version*/
@@ -123,65 +205,152 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 
 /*****Album page css*****/
 
-#picturelist1 img{
+#picturelist1 img
+{
 	display:block;
 	border:2px solid gray;
 	width:200px;                  /*image gallery effect*/
 	height:200px;
 	opacity:1.7; /*initial opacity of images*/
 }
-#picturelist1{
+#picturelist1
+{
 	text-align:center;
 	margin-right:auto;
 	margin-left:auto;
 }
-#picturelist1,.image_view {
+#picturelist1,.image_view 
+{
 	list-style:none;
 	float:left;
 	font-weight:bold;
 	color:#777777;
 }
-.upload{
+.upload
+{
 	margin-top: 120px;
 }
-.upload1{
+.upload1
+{
 	margin-top: 80px;
 	 
 }
-.newalbum{
+.newalbum
+{
 	margin-top: 0px;
 }
-#cen{
+#cen
+{
 	text-align: center;
 }
-.alert{
+.alert
+{
 	text-align: center;
 	margin-top: 50px;
 	font-size:20px; 
 }
-.alert1{
+.alert1
+{
 	text-align: center;
 	margin-top: 80px;
 	font-size:20px; 
 }
-strong{
+strong
+{
 	color:lightpink;
 	text-transform: capitalize;
 }
-.jumbotron{
+b{
+	color:#008B8B;
+	text-transform: capitalize;
+}	
+}
+.jumbotron
+{
 	box-shadow: 10px 10px 5px #888888;	
 }
 #cen,.jumbotron,.alert{
 	font-family: 'caviar_dreamsbold';	
 }
 /*images new page*/
-.images{
+.images
+{
 	margin-left: auto;
 	margin-right: auto;
 	display: inline-block;
 }
-#browes{
+#browes
+{
 	margin-left:45%;
 	margin-top: 20px;
 }
 /*end*/
+/* Pop Up */
+article 
+{
+	display:none
+}
+
+#popupAbout, #popupProjects, #popupContact, #popupBlog 
+{
+
+	height: 500px;
+	width: 500px;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.80);
+	border: 1px solid #cecece;
+	z-index: 15;
+	padding: 20px;
+	color: #FFF;
+	-webkit-box-shadow: 0px 0px 4px #000 inset;
+	-moz-box-shadow: 0px 0px 4px #000 inset;
+	box-shadow: 0px 0px 4px #000 inset;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	border-radius: 10px;	
+	visibility: hidden;
+}
+.cros
+{
+	border:white;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	float:right;
+}
+/*Profile page*/
+.content 
+{
+	margin-top: 0px;
+	text-align: center;
+}
+
+.grid1
+{
+	background:lightgrey;
+	text-align:center;
+}
+.grid1 img{
+	background:#fff;
+	padding:3px;
+	border-radius: 50%;
+}
+/*edit registration*/
+.rt2
+{ 
+	margin-left: 80px;
+ 	background: linear-gradient(to bottom,lightcyan, white); /* Standard syntax (must be last) */
+}
+.sub1
+{
+	background-color: lightgrey;
+	width:250px;
+}
+/*slide show*/
+.wrapper {
+  overflow: hidden;
+}

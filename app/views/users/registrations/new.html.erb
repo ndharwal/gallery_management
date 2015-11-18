@@ -1,7 +1,7 @@
 <div class="body"></div>
 <%= render "home/header" %>
 <div class="col-sm-offset-3 form-horizontal">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: :true}) do |f| %>
 <%= devise_error_messages! %>
 <%= render 'signupform', f: f %>
 <% end %>

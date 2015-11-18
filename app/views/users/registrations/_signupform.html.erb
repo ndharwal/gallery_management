@@ -43,3 +43,8 @@
     <%= f.submit "save", class: 'btn log sub btn-default' %>
   </div>
 </div>
+<div class="field form-group">
+  <%= f.label :profile_pic, 'Choose Image', class: 'col-sm-3 control-label' %>
+  <div class="col-sm-4">
+    <%= f.file_field :profile_pic %>
+  </div>

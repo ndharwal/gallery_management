@@ -1,7 +1,12 @@
 Rails.application.routes.draw do  
 
   devise_for :users
-  resources :home
+  resources :home do
+    collection do
+      get 'contactus'
+      get 'aboutus' 
+    end
+  end
   resources :user, :shallow => true do
     resources :albums, :shallow => true do
       resources :images
