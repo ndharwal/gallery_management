@@ -1,0 +1,18 @@
+<div id ="container"> 
+  <div id="content">
+    <ul id="picturelist">   
+        <% @images.each do |image| %>
+          <li class="image_view">
+            <%= image.img_name %>
+            <%= image_tag image.photo_url() %>   
+            <%= link_to new_album_image_path(:album_id) do %>    
+              <span class="glyphicon glyphicon-open"></span>
+            <% end %>
+            <%= link_to image_path(image.id),:method => :delete , data: { confirm: 'Are you sure?' } do%>
+              <span class="glyphicon glyphicon-remove"></span>  
+            <% end %>            
+          </li>    
+      <% end %>
+    </ul>
+  </div>
+</div>

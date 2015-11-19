@@ -1,15 +1,13 @@
 <%= render 'home/flash' %> 
 <%= render 'home/headerup_in' %>
-<div class="alert1">
-  <div class="content">
-    <div class="grid1" id="me">
-      <%= image_tag current_user.profile_pic_url(), class: 'pic' %>
-      <% current_user.albums.where(params[:id]) %>  
-      <h3>Hello <b><%= current_user.fname %></b></h3><br>
-      <p>you have created a album <b><%= @album.title %></b></p><br>
-      <p>and your album description is <b><%= @album.description %></b></p>      
-    </div>
-    <%= link_to "edit profile", edit_user_registration_path(current_user) %> 
-    <%= link_to "Upload image", new_album_image_path(params[:id]) %>
+<div id="content3">
+  <%= link_to "edit profile", edit_user_registration_path(current_user), class: 'conte' %> 
+  <%= link_to "Upload image", new_album_image_path(params[:id]), class: 'conte1', remote: true %>
+  <div id="part" style="display:none">
+  
+  </div>
+  <div id="content1">
+    <%= render 'imageshow' %>
   </div>
 </div>
+

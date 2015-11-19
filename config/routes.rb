@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
   resources :user, :shallow => true do
-    resources :albums, :shallow => true do
+    resources :albums do
       resources :images
     end
   end

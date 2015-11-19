@@ -13,6 +13,7 @@
           <li ><%= link_to image_tag "twitter.png", class: 'social' %></li>
           <li ><%= link_to image_tag "linkedin.png", class: 'social' %></li>
          <li><%= link_to "Home", home_index_path%></li>
+         <li><%= link_to "Profile", home_index_path%></li>
          <% if current_user.albums.present? %>
           <li class="badge1">
             <span class="badge bg-green"><%= current_user.albums.count %></span>

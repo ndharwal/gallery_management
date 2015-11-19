@@ -1,18 +1,19 @@
 class ImagesController < ApplicationController
-
+  before_filter :set_album
   def index    
-   @images = Image.all
+   @images = @album.images.all
   end
 
   def new
-    @image = Image.new
+   
+    @image = @album.images.new   
   end
     
   def create
-    @image = Image.create(image_params)
-     if @image.save
+    @image = @album.images.new(image_params)
+     if @image.save      
       flash[:notice] = "Successfully image uploaded"      
-      redirect_to album_images_path(params[:album_id])
+      redirect_to album_path(@album.id)
       else
       render :action => 'new'
     end
@@ -21,29 +22,34 @@ class ImagesController < ApplicationController
   def update
   end
 
-
-  def destroy    
+  def destroy   
     @image = Image.where(:id => params[:id]).first
+
       if @image.destroy
       flash[:notice] = "Image Successfuly Deleted" 
-      redirect_to image_path(:id)
+      redirect_to album_path(@image.album_id)
       else 
       redirect_to back
     end
   end
 
   def show
-    @image = Image.where(:album_id => params[:album_id]).first
+    @image = @album.images.where(:id => params[:id]).first
   end
 
   def edit
   end
 
-
   private
+
+  def set_album
+    @album = current_user.albums.where(:id => params[:album_id]).first
+  end
   
   def image_params
     params.require(:image).permit(:img_name, :img_url, :img_size, :album_id, :id, :photo)
   end
+  
+
     
 end

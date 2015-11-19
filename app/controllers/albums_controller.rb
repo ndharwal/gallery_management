@@ -1,4 +1,5 @@
 class AlbumsController < ApplicationController
+  respond_to :html, :js
   
   def index
     @albums = current_user.albums
@@ -10,6 +11,7 @@ class AlbumsController < ApplicationController
 
   def show
     @album = current_user.albums.where(:id => params[:id]).first
+    @images = @album.images
   end
 
   def create
@@ -44,6 +46,9 @@ class AlbumsController < ApplicationController
       else
         render 'edit' 
     end
+  end
+
+  def profile
   end
 
   private
