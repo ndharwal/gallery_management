@@ -2,12 +2,20 @@
 <%= render 'home/headerup_in' %>
 <div id="content3">
   <%= link_to "edit profile", edit_user_registration_path(current_user), class: 'conte' %> 
-  <%= link_to "Upload image", new_album_image_path(params[:id]), class: 'conte1', remote: true %>
-  <div id="part" style="display:none">
-  
-  </div>
-  <div id="content1">
-    <%= render 'imageshow' %>
-  </div>
+  <%= link_to "Upload image", new_user_album_image_path(current_user.id,@album.id), class: 'conte1', remote: true %>
+   <div id="part" style="display:none">  
+  </div> 
+  <% if @album.images.present? %>  
+    <div id="content1">
+      <%= render 'imageshow' %>
+    </div>
+  <% else %>
+    <div class="container upload">
+      <div class="jumbotron">
+        <h2>There is no Image in your album..<br>please upload image...</h2>
+      </div>
+    </div>
+  <% end %>
 </div>
+
 

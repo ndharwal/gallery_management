@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       get 'aboutus' 
     end
   end
-  resources :user, :shallow => true do
+  resources :user do
     resources :albums do
       resources :images
     end

@@ -13,7 +13,7 @@ class ImagesController < ApplicationController
     @image = @album.images.new(image_params)
      if @image.save      
       flash[:notice] = "Successfully image uploaded"      
-      redirect_to album_path(@album.id)
+      redirect_to user_album_path(current_user.id, @album.id)
       else
       render :action => 'new'
     end
@@ -27,7 +27,7 @@ class ImagesController < ApplicationController
 
       if @image.destroy
       flash[:notice] = "Image Successfuly Deleted" 
-      redirect_to album_path(@image.album_id)
+      redirect_to user_album_path(current_user.id, @image.album_id)
       else 
       redirect_to back
     end

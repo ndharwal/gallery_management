@@ -5,10 +5,10 @@
           <li class="image_view">
             <%= image.img_name %>
             <%= image_tag image.photo_url() %>   
-            <%= link_to new_album_image_path(:album_id) do %>    
+            <%= link_to new_user_album_image_path(current_user.id,@album.id) do %>    
               <span class="glyphicon glyphicon-open"></span>
             <% end %>
-            <%= link_to image_path(image.id),:method => :delete , data: { confirm: 'Are you sure?' } do%>
+            <%= link_to user_album_image_path(current_user.id, image.album_id, image.id),:method => :delete , data: { confirm: 'Are you sure?' } do%>
               <span class="glyphicon glyphicon-remove"></span>  
             <% end %>            
           </li>    
