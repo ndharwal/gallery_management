@@ -5,7 +5,6 @@ class ImagesController < ApplicationController
   end
 
   def new
-   
     @image = @album.images.new   
   end
     
@@ -22,14 +21,17 @@ class ImagesController < ApplicationController
   def update
   end
 
-  def destroy   
-    @image = Image.where(:id => params[:id]).first
-
-      if @image.destroy
-      flash[:notice] = "Image Successfuly Deleted" 
-      redirect_to user_album_path(current_user.id, @image.album_id)
-      else 
+  def destroy
+    @image = @album.images.where(:id => params[:id]).first
+    if @image.destroy
+       flash.now[:notice] = "Successfully image delete"
+       @images = @album.images.all
+    else 
       redirect_to back
+    end
+    respond_to do |format|
+      format.js {}
+      format.html
     end
   end
 

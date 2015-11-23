@@ -1,18 +1,14 @@
-<div id ="container"> 
-  <div id="content">
-    <ul id="picturelist">   
-        <% @images.each do |image| %>
-          <li class="image_view">
-            <%= image.img_name %>
-            <%= image_tag image.photo_url() %>   
-            <%= link_to new_user_album_image_path(current_user.id,@album.id) do %>    
-              <span class="glyphicon glyphicon-open"></span>
-            <% end %>
-            <%= link_to user_album_image_path(current_user.id, image.album_id, image.id),:method => :delete , data: { confirm: 'Are you sure?' } do%>
-              <span class="glyphicon glyphicon-remove"></span>  
-            <% end %>            
-          </li>    
-      <% end %>
-    </ul>
-  </div>
-</div>
+<ul id="picturelist">   
+    <% @images.each do |image| %>
+      <li class="image_view">
+        <%= image.img_name %>
+        <%= image_tag image.photo_url() %>   
+        <%= link_to new_user_album_image_path(current_user.id,@album.id) do %>    
+          <span class="glyphicon glyphicon-open"></span>
+        <% end %>
+        <%= link_to user_album_image_path(current_user.id, @album.id, image.id),:method => :delete ,:remote => true, data: { confirm: 'Are you sure?' } do%>
+          <span class="glyphicon glyphicon-remove"></span>  
+        <% end %>            
+      </li>    
+  <% end %>
+</ul>

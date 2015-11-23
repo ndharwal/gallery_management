@@ -11,6 +11,10 @@
 {
 	box-shadow:5px 10px 20px #707070;
 }
+#list{
+	margin-left:35%;
+	margin-top: 50px;
+}
 .pic
 {
 	width:180px;
@@ -58,7 +62,7 @@ float: right;
 {
 	width: 120px;
 	margin-left: 5px;
-	 word-spacing: -5px;
+	
 }
 .badge
 {	position: absolute;
@@ -69,7 +73,6 @@ float: right;
 	float:right;
 	display: inline;
 	padding-right:22px;
-	letter-spacing: -100px;
 	background-color: SlateGray;
 	color: white;
 	font-weight: bold;
@@ -104,9 +107,15 @@ float: right;
 	 filter: blur(20px);
   	height: 800px;
  	width: 1376px;
-  animation: slide 40s linear infinite;
+  -webkit-animation: slide 40s linear infinite;
+  	-moz-animation: slide 40s linear infinite;
 }
-
+@-moz-keyframes slide {
+    0%   {background: url(http://www.successcorners.com/wp-content/uploads/2015/06/website-background-wincustomize-explore-clouds-284048.jpg);}
+    25%  {background: url(http://www.bigfatmarketing.com/wp-content/uploads/2014/09/web-background-website-linux-freedom-upgrade-187984.jpg);}
+    50%  {background: url(http://freedwallpaper.com/wp-content/uploads/2014/09/background-wallpapers-1862885229.jpg);}
+    100% {background: url(http://thumbs.dreamstime.com/z/seamless-abstract-pattern-blue-background-textiles-interior-design-book-design-website-34311830.jpg);}
+}
 /*Chrome, Safari, Opera */
 @-webkit-keyframes slide {
     0%   {background: url(http://www.successcorners.com/wp-content/uploads/2015/06/website-background-wincustomize-explore-clouds-284048.jpg);}
@@ -114,6 +123,7 @@ float: right;
     50%  {background: url(http://freedwallpaper.com/wp-content/uploads/2014/09/background-wallpapers-1862885229.jpg);}
     100% {background: url(http://thumbs.dreamstime.com/z/seamless-abstract-pattern-blue-background-textiles-interior-design-book-design-website-34311830.jpg);}
 }
+
 @keyframes slide {
     0%   {background: url(http://www.successcorners.com/wp-content/uploads/2015/06/website-background-wincustomize-explore-clouds-284048.jpg);}
     25%  {background: url(http://www.bigfatmarketing.com/wp-content/uploads/2014/09/web-background-website-linux-freedom-upgrade-187984.jpg);}
@@ -232,7 +242,7 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 }
 .upload
 {
-	margin-top: 120px;
+	margin-top: 20px;
 }
 .upload1
 {

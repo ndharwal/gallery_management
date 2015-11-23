@@ -1,8 +1,17 @@
 class AlbumsController < ApplicationController
+  autocomplete :album, :title
   respond_to :html, :js
   
   def index
     @albums = current_user.albums
+    if params[:search]
+      @albums = current_user.albums.search(params[:search])
+    else     
+    end
+      respond_to do |format|
+        format.js {}
+        format.html
+      end
   end
 
   def new
@@ -17,20 +26,28 @@ class AlbumsController < ApplicationController
   def create
     @album = current_user.albums.new(album_params)
     if @album.save
-      flash[:notice] = "Successfully Album created"
-      redirect_to user_albums_path(current_user.id)
+      flash.now[:notice] = "Successfully Album created"
     else
-      render :action => 'new'
+      redirect_to back
+    end
+    respond_to do |format|
+      format.js {}
+      format.html
     end
   end
 
   def destroy
+  
     @album = current_user.albums.where(:id => params[:id]).first
     if @album.destroy
-      flash[:notice] = "Album Successfuly Deleted" 
-      redirect_to user_albums_path(current_user.id)
+      flash.now[:notice] = "Album Successfuly Deleted" 
+      @albums = current_user.albums
     else 
       redirect_to back
+    end
+    respond_to do |format|
+      format.js {}
+      format.html
     end
   end
 
@@ -41,10 +58,14 @@ class AlbumsController < ApplicationController
   def update
     @album = current_user.albums.where(:id => params[:id]).first
       if @album.update_attributes(album_params)
-        flash[:success] = "Successfuly Updated"
-      redirect_to user_albums_path(current_user.id)
+        flash.now[:success] = "Successfuly Updated"
+        @albums = current_user.albums.order(updated_at: :DESC)
       else
         render 'edit' 
+    end
+    respond_to do |format|
+      format.js {}
+      format.html
     end
   end
 

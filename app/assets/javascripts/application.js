@@ -15,5 +15,13 @@
 //= require pop-ups
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery-ui
+//= require autocomplete-rails
 //= require bootstrap
 //= require bootstrap.min
+$("#products_search input").keyup(function() {
+    $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, "script");
+    return false;
+  });
+});
+

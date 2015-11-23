@@ -35,10 +35,11 @@ gem 'carrierwave'
 gem "rmagick", "~> 2.13.1"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'jquery-ui-rails'
+gem 'rails4-autocomplete'
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
-  gem 'debugger'
+  gem 'pry-nav'
 end
 
 group :development do

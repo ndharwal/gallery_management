@@ -1,0 +1,4 @@
+<% binding.pry %>
+<%= form_for @album,remote: true, url: {action: "update"}, html: {class: "form-horizontal newalbum col-sm-offset-2"} do |f| %>
+   <%= render 'edit_createform', f: f %>
+<% end %>
