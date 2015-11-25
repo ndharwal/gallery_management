@@ -11,8 +11,11 @@
 {
 	box-shadow:5px 10px 20px #707070;
 }
+#text{
+	margin-left: 35%;
+}
 #list{
-	margin-left:35%;
+	margin-left:0px;
 	margin-top: 50px;
 }
 .pic

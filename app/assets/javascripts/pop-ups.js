@@ -1,9 +1,3 @@
-/***************************/
-//@Author: Adrian "yEnS" Mato Gondelle
-//@website: www.yensdesign.com
-//@email: yensamg@gmail.com
-//@license: Feel free to use it, but keep this credits please!					
-/***************************/
 //About Page Pop Up
 			var popupAboutStatus = 0;
 			

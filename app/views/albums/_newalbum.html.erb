@@ -1,7 +1,7 @@
 <div class="container upload1">
   <h2 id="cen"> Fill the below information about your album</h2><br>
   <div class="jumbotron">
-    <%= form_for @album, remote: true, url: {action: "create"}, html: {class: "form-horizontal newalbum col-sm-offset-2"} do |f| %>
+    <%= form_for @album, method: "post", remote: true, url: {action: "create"}, html: {class: "form-horizontal newalbum col-sm-offset-2"} do |f| %>
         <div class="field form-group">
           <%= f.label :title, class: 'col-sm-2 control-label' %>
           <div class="col-sm-4">
@@ -14,6 +14,7 @@
             <%= f.text_area :description, class: 'form-control', required: true %>
           </div>
         </div>
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />          
         <div class="form-group action">        
           <div class="col-sm-offset-2 col-sm-10">
             <%= f.submit "submit", class:"btn log btn-default" %>

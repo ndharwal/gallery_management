@@ -1,14 +1,17 @@
-<ul id="picturelist1">
 <div id="list">
-  <%= form_tag(user_albums_path(current_user.id), :method => "get", id: "products_search") do %>
-    <%= text_field_tag :search, params[:search] %>
+  <%= form_tag(user_albums_path(current_user.id), remote: true, :method => "get", id: "products_search") do %>
+    <%= text_field_tag :search, params[:search], id: "text" %>
     <%= submit_tag "Search", :name => nil %>
   <%end%>
-</div>
-  <% @albums.each do |album| %>
+<ul id="picturelist1">
+  <% @albums.each do |album|  %>
     <li class="image_view">
       <%= album.title %>
-      <%= link_to image_tag "1.jpeg" %>
+      <%# if album.cover.present? %>
+       <%#= image_tag album.cover_url() %>
+       <%# else %>
+      <%= link_to image_tag "1.jpeg" %>  
+      <%# end %>
       <%= link_to user_album_path(current_user.id, album.id), remote: true do %>    
         <span class="glyphicon glyphicon-open"></span>
       <% end %>
@@ -21,3 +24,16 @@
     </li>
   <% end %>
 </ul>
+  </div>
+<script>
+  $("#products_search input").on('keyup',function() {
+     var s = $(this).val();
+     if(s.length>2)
+     {
+      $("#products_search").submit();
+     }
+     else{
+      $("#products_search").submit();
+     }
+    });
+</script>

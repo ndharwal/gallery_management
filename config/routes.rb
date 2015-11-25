@@ -8,10 +8,13 @@ Rails.application.routes.draw do
   end
   resources :user do
     resources :albums do
-      get :autocomplete_album_title, :on => :collection
       resources :images
     end
   end
+  
+  resources :albums , only: [] do
+    get :autocomplete_album_title, :on => :collection
+  end  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
