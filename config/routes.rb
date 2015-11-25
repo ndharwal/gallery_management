@@ -12,9 +12,11 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :albums , only: [] do
-    get :autocomplete_album_title, :on => :collection
-  end  
+  resources :albums, only: :coverpage do 
+     member do 
+      put 'coverpage'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,4 +1,5 @@
 <div id="list">
+<div id="flash"></div>
   <%= form_tag(user_albums_path(current_user.id), remote: true, :method => "get", id: "products_search") do %>
     <%= text_field_tag :search, params[:search], id: "text" %>
     <%= submit_tag "Search", :name => nil %>
@@ -7,11 +8,13 @@
   <% @albums.each do |album|  %>
     <li class="image_view">
       <%= album.title %>
-      <%# if album.cover.present? %>
-       <%#= image_tag album.cover_url() %>
-       <%# else %>
-      <%= link_to image_tag "1.jpeg" %>  
-      <%# end %>
+      <%if album.cover_id.present? %>
+      <% image = album.images.where(:id => album.cover_id).first %>
+       <%= image_tag image.photo_url() %>
+        
+        <% else %>
+      <%= link_to image_tag "1.jpeg" %>
+      <% end %>       
       <%= link_to user_album_path(current_user.id, album.id), remote: true do %>    
         <span class="glyphicon glyphicon-open"></span>
       <% end %>

@@ -4,7 +4,7 @@ class AlbumsController < ApplicationController
   respond_to :html, :js
   
   def index
-    @albums = current_user.albums
+    @albums = current_user.albums.order(created_at: :ASC)
     if params[:search]
         @albums = @albums.search(params[:search])
     else 
@@ -67,6 +67,20 @@ class AlbumsController < ApplicationController
     respond_to do |format|
       format.js {}
       format.html
+    end
+  end
+
+  def coverpage
+    @album = current_user.albums.where(:id => params[:id]).first
+    if @album.update_attributes(:cover_id => params[:image_id])
+        flash.now[:success] = "Successfuly Cover photo set"
+        @albums = current_user.albums
+      else
+        render 'edit' 
+    end
+    respond_to do |format|
+      format.js {}
+      format.html {redirect_to :back}
     end
   end
 

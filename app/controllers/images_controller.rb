@@ -40,7 +40,7 @@ class ImagesController < ApplicationController
   end
 
   def edit
-  end
+  end 
 
   private
 

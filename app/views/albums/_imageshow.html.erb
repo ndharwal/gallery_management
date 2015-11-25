@@ -2,6 +2,7 @@
     <% @images.each do |image| %>
       <li class="image_view">
         <%= image.img_name %>
+        <%= link_to "Set as Cover photo", coverpage_album_path(@album.id, :image_id => image.id), method: :put, remote: true %>
         <%= image_tag image.photo_url() %>   
         <%= link_to new_user_album_image_path(current_user.id,@album.id) do %>    
           <span class="glyphicon glyphicon-open"></span>
