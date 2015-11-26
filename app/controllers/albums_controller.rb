@@ -1,10 +1,10 @@
 class AlbumsController < ApplicationController
-  skip_before_filter  :verify_authenticity_token
+  before_action :set_default, only: [:show, :update, :destroy, :edit]
   autocomplete :album, :title
   respond_to :html, :js
   
   def index
-    @albums = current_user.albums.order(created_at: :ASC)
+    @albums = current_user.albums.sort
     if params[:search]
         @albums = @albums.search(params[:search])
     else 
@@ -85,6 +85,13 @@ class AlbumsController < ApplicationController
   end
 
   private
+
+  def set_default
+    @album = current_user.albums.where(:id => params[:id]).first
+    if @album.blank?
+      redirect_to root_path
+    end
+  end
 
   def album_params
     params.require(:album).permit(:title, :description, :user_id, :id)

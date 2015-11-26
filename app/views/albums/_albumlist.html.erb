@@ -7,13 +7,13 @@
 <ul id="picturelist1">
   <% @albums.each do |album|  %>
     <li class="image_view">
-      <%= album.title %>
-      <%if album.cover_id.present? %>
-      <% image = album.images.where(:id => album.cover_id).first %>
-       <%= image_tag image.photo_url() %>        
-        <% else %>
-      <%= link_to image_tag "1.jpeg" %>
-      <% end %>       
+      <%= album.title %>      
+      <% image = albumcoverpage(album) %>
+      <%if album.cover_id.present? && image.present? %>
+        <%= link_to(image_tag(image.photo_url()), user_album_path(current_user.id, album.id), remote: true ) %>     
+      <% else %>
+        <%= link_to(image_tag("1.jpeg"), user_album_path(current_user.id, album.id), remote: true ) %>
+      <% end %>      
       <%= link_to user_album_path(current_user.id, album.id), remote: true do %>    
         <span class="glyphicon glyphicon-open"></span>
       <% end %>
