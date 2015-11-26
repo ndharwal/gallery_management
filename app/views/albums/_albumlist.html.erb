@@ -10,8 +10,7 @@
       <%= album.title %>
       <%if album.cover_id.present? %>
       <% image = album.images.where(:id => album.cover_id).first %>
-       <%= image_tag image.photo_url() %>
-        
+       <%= image_tag image.photo_url() %>        
         <% else %>
       <%= link_to image_tag "1.jpeg" %>
       <% end %>       
