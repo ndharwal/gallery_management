@@ -1,18 +1,13 @@
 class AlbumsController < ApplicationController
-  before_action :set_default, only: [:show, :update, :destroy, :edit]
-  autocomplete :album, :title
+  before_action :set_default, only: [:show, :update, :destroy, :edit, :coverpage]
   respond_to :html, :js
   
   def index
     @albums = current_user.albums.sort
     if params[:search]
-        @albums = @albums.search(params[:search])
-    else 
+      @albums = @albums.search(params[:search])
     end
-      respond_to do |format|
-        format.js {}
-        format.html
-      end
+    response_with_format
   end
 
   def new
@@ -20,8 +15,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = current_user.albums.where(:id => params[:id]).first
-    @images = @album.images
+   @images = @album.images
   end
 
   def create
@@ -32,56 +26,45 @@ class AlbumsController < ApplicationController
     else
       redirect_to :back
     end
-    respond_to do |format|
-      format.js {}
-      format.html {}
-    end
+    response_with_format
   end
 
-  def destroy
-    @album = current_user.albums.where(:id => params[:id]).first
+  def destroy  
     if @album.destroy
       flash.now[:notice] = "Album Successfuly Deleted" 
       @albums = current_user.albums
     else 
       redirect_to back
     end
-    respond_to do |format|
-      format.js {}
-      format.html
-    end
+    response_with_format
   end
 
-  def edit
-    @album = current_user.albums.where(:id => params[:id]).first
+  def edit  
   end 
 
   def update
-    @album = current_user.albums.where(:id => params[:id]).first
-      if @album.update_attributes(album_params)
-        flash.now[:success] = "Successfuly Updated"
-        @albums = current_user.albums.order(updated_at: :DESC)
-      else
-        render 'edit' 
+    if @album.update_attributes(album_params)
+      flash.now[:success] = "Successfuly Updated"
+      @albums = current_user.albums.sort
+    else
+      render 'edit' 
     end
-    respond_to do |format|
-      format.js {}
-      format.html
-    end
+    response_with_format
   end
 
   def coverpage
-    @album = current_user.albums.where(:id => params[:id]).first
-    if @album.update_attributes(:cover_id => params[:image_id])
+    if @album.images.where(:id => params[:image_id]).present? 
+      if @album.update_attributes(:cover_id => params[:image_id])
         flash.now[:success] = "Successfuly Cover photo set"
         @albums = current_user.albums
       else
-        render 'edit' 
+        redirect_to root_path
+      end 
+    else
+      flash.now[:error] = "Coverphoto not found"
+      @albums = current_user.albums.sort
     end
-    respond_to do |format|
-      format.js {}
-      format.html {redirect_to :back}
-    end
+    response_with_format
   end
 
   private
@@ -90,6 +73,13 @@ class AlbumsController < ApplicationController
     @album = current_user.albums.where(:id => params[:id]).first
     if @album.blank?
       redirect_to root_path
+    end
+  end
+
+  def response_with_format
+    respond_to do |format|
+      format.js {}
+      format.html {}
     end
   end
 

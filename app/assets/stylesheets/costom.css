@@ -7,6 +7,11 @@
 {
 	font-family: 'caviar_dreamsbold';
 }
+.glyphicon-comment,.remove1{
+color: lightgreen;
+font-size: 25px;
+}
+
 .navbar
 {
 	box-shadow:5px 10px 20px #707070;
