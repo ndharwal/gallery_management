@@ -68,7 +68,7 @@ class AlbumsController < ApplicationController
   end
 
   private
-
+ 
   def set_default
     @album = current_user.albums.where(:id => params[:id]).first
     if @album.blank?

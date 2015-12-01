@@ -15,6 +15,7 @@
 //= require pop-ups
 //= require jquery_ujs
 //= require turbolinks
+//= require social-share-button
 //= require jquery-ui
 //= require autocomplete-rails
 //= require bootstrap

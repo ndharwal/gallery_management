@@ -1,7 +1,7 @@
 class Album < ActiveRecord::Base
-
-  belongs_to :user
+  has_many :comments, as: :commentable, :dependent => :destroy
   has_many :images
+  belongs_to :user 
   scope :sort, -> { order(:updated_at => :DESC ) }
   
   def self.search(search)

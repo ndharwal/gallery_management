@@ -9,7 +9,20 @@
 }
 .glyphicon-comment,.remove1{
 color: lightgreen;
-font-size: 25px;
+font-size: 20px;
+}
+.box2{
+	background-color: lightgrey;
+	border-style:solid;
+}
+.imageshow{
+
+	margin-top: 50px;
+}
+.social-share-button{
+	    width: 61px;
+    display: -webkit-inline-box;
+}
 }
 
 .navbar

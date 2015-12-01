@@ -1,4 +1,5 @@
 Rails.application.routes.draw do  
+
   devise_for :users
   resources :home do
     collection do
@@ -10,6 +11,12 @@ Rails.application.routes.draw do
     resources :albums do
       resources :images
     end
+  end
+  resources :images, only: :comments do
+    resources :comments
+  end
+  resources :albums, only: :comments do 
+    resources :comments
   end
   
   resources :albums, only: :coverpage do 

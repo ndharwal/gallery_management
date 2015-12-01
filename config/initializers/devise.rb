@@ -116,6 +116,7 @@ Devise.setup do |config|
   # Default is nil, meaning there is no restriction on how long a user can take
   # before confirming their account.
   # config.confirm_within = 3.days
+  config.omniauth :facebook, "640073172800802", "ce2eeeeda9d53eb42a03de98ad28a0a9"
 
   # If true, requires any email changes to be confirmed (exactly the same way as
   # initial account confirmation) to be applied. Requires additional unconfirmed_email

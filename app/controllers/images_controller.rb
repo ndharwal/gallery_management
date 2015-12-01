@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
   before_filter :set_album
+
   def index    
    @images = @album.images.all
   end
@@ -37,6 +38,13 @@ class ImagesController < ApplicationController
 
   def show
     @image = @album.images.where(:id => params[:id]).first
+    @comments = @image.comments.reorder('created_at DESC')
+    @comments = @comments.paginate(:page => params[:page], per_page: 5)
+    
+    respond_to do |format|
+      format.js {}
+      format.html
+    end
   end
 
   def edit

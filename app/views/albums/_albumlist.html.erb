@@ -7,7 +7,10 @@
 <ul id="picturelist1">
   <% @albums.each do |album|  %>
     <li class="image_view">
-      <%= album.title %>      
+      <%= album.title %>
+      <%= link_to new_album_comment_path(album.id), remote: true, :class=>"modal-open" do %>    
+          <span class="glyphicon glyphicon-comment"></span>
+        <% end %>      
       <% image = albumcoverpage(album) %>
       <%if album.cover_id.present? && image.present? %>
         <%= link_to(image_tag(image.photo_url()), user_album_path(current_user.id, album.id), remote: true ) %>     
@@ -38,4 +41,28 @@
       $("#products_search").submit();
      }
     });
+  $(".modal-open").on('click',function() {
+    $('.myModal').modal('show')
+  });
 </script>
+
+<!-- Modal -->
+<div class="modal fade myModal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Comment box for album</h4>
+      </div>
+      <div class="modal-body">
+        <div id="part">
+       
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
