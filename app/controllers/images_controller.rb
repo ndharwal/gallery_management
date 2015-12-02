@@ -6,7 +6,11 @@ class ImagesController < ApplicationController
   end
 
   def new
-    @image = @album.images.new   
+    @image = @album.images.new
+    respond_to do |format|
+      format.js {}
+      format.html {redirect_to user_album_path(current_user.id, @album.id)}
+    end   
   end
     
   def create
@@ -14,7 +18,7 @@ class ImagesController < ApplicationController
      if @image.save      
       flash[:notice] = "Successfully image uploaded"      
       redirect_to user_album_path(current_user.id, @album.id)
-      else
+    else
       render :action => 'new'
     end
   end
@@ -32,15 +36,14 @@ class ImagesController < ApplicationController
     end
     respond_to do |format|
       format.js {}
-      format.html
+      format.html {}
     end
   end
 
   def show
     @image = @album.images.where(:id => params[:id]).first
     @comments = @image.comments.reorder('created_at DESC')
-    @comments = @comments.paginate(:page => params[:page], per_page: 5)
-    
+    @comments = @comments.paginate(:page => params[:page], per_page: 5)    
     respond_to do |format|
       format.js {}
       format.html

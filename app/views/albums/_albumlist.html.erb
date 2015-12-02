@@ -5,28 +5,45 @@
     <%= submit_tag "Search", :name => nil %>
   <%end%>
 <ul id="picturelist1">
+  <%#= current_user.full_name %>
   <% @albums.each do |album|  %>
-    <li class="image_view">
-      <%= album.title %>
-      <%= link_to new_album_comment_path(album.id), remote: true, :class=>"modal-open" do %>    
-          <span class="glyphicon glyphicon-comment"></span>
+    <div class="col-sm-7">
+      <li class="image_view">
+        <%= album.title %>
+        <%= link_to new_album_comment_path(album.id), remote: true, :class=>"modal-open" do %>    
+            <span class="glyphicon glyphicon-comment"></span>
         <% end %>      
-      <% image = albumcoverpage(album) %>
-      <%if album.cover_id.present? && image.present? %>
-        <%= link_to(image_tag(image.photo_url()), user_album_path(current_user.id, album.id), remote: true ) %>     
-      <% else %>
-        <%= link_to(image_tag("1.jpeg"), user_album_path(current_user.id, album.id), remote: true ) %>
-      <% end %>      
-      <%= link_to user_album_path(current_user.id, album.id), remote: true do %>    
-        <span class="glyphicon glyphicon-open"></span>
-      <% end %>
-      <%= link_to edit_user_album_path(current_user.id, album.id), remote: true do%>
-        <span class="glyphicon glyphicon-edit"></span>
-      <% end %>
-      <%= link_to user_album_path(current_user.id, album.id), remote: true, :method => :delete , data: { confirm: 'Are you sure?' } do%>
-        <span class="glyphicon glyphicon-remove"></span>  
-      <% end %>
-    </li>
+        <% image = albumcoverpage(album) %>
+        <%if album.cover_id.present? && image.present? %>
+          <%= link_to(image_tag(image.photo_url()), user_album_path(current_user.id, album.id), remote: true, class: 'coverphoto' ) %>     
+        <% else %>
+          <%= link_to(image_tag("1.jpeg"), user_album_path(current_user.id, album.id), remote: true, class: 'coverphoto' ) %>
+        <% end %>      
+        <%= link_to user_album_path(current_user.id, album.id), remote: true do %>    
+          <span class="glyphicon glyphicon-open"></span>
+        <% end %>
+        <%= link_to edit_user_album_path(current_user.id, album.id), remote: true do%>
+          <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+        <%= link_to user_album_path(current_user.id, album.id), remote: true, :method => :delete , data: { confirm: 'Are you sure?' } do%>
+          <span class="glyphicon glyphicon-remove"></span>  
+        <% end %>
+        </div>
+        <div class="col-sm-5 comm2">
+          <p>Comment box</p>
+          <% comment = commentlimit(album) %>
+          <%if comment.present? %>
+            <% comment.each do |p| %>
+              <p id="comment23" class="alert alert-info">
+                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;
+                 </a>
+              <%= p.comment %>
+              <%= link_to "",album_comment_path(album.id, p.id), class: 'glyphicon glyphicon-remove', :method => :delete , data: { confirm: 'Are you sure?' } %>
+              </p>
+            <% end %>
+          <% end %>
+      </li>
+    </div>
   <% end %>
 </ul>
   </div>
@@ -56,9 +73,7 @@
       </div>
       <div class="modal-body">
         <div id="part">
-       
         </div>
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

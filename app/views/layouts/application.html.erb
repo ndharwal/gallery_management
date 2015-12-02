@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>GalleryManagement</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-   <% if user_signed_in? %>
-  <%= render 'home/headerup_in' %>
-  <%= render 'home/flash' %>
-  <% else %>
-    <%= render 'home/header' %>
-  <% end %> 
-</head><br><br>
-<body>
-<div id="ajax">
-<%= yield %>
-</div>
-</body>
+  <head>
+    <title>GalleryManagement</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+     <% if user_signed_in? %>
+    <%= render 'home/headerup_in' %>
+    <%= render 'home/flash' %>
+    <% else %>
+      <%= render 'home/header' %>
+    <% end %> 
+  </head><br><br>
+  <body>
+    <div id="home">
+      <div id="ajax">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
 </html>

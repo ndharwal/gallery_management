@@ -15,7 +15,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
-   @images = @album.images
+    @images = @album.images
   end
 
   def create
@@ -29,12 +29,10 @@ class AlbumsController < ApplicationController
     response_with_format
   end
 
-  def destroy  
+  def destroy 
     if @album.destroy
       flash.now[:notice] = "Album Successfuly Deleted" 
       @albums = current_user.albums
-    else 
-      redirect_to back
     end
     response_with_format
   end
@@ -61,7 +59,7 @@ class AlbumsController < ApplicationController
         redirect_to root_path
       end 
     else
-      flash.now[:error] = "Coverphoto not found"
+      flash.now[:error] = "Cover photo not found"
       @albums = current_user.albums.sort
     end
     response_with_format

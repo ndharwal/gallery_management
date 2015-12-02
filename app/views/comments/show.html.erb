@@ -1,2 +1,13 @@
-<h1>Comments#show</h1>
-<p>Find me in app/views/comments/show.html.erb</p>
+<div class="panel panel-success">
+  <div class="panel-heading">Album all Comments
+  </div>
+  <div class="panel-body">
+    <% if @comments.present? %>
+      <% @comments.each do |p| %>
+        <p><%= p.comment %></p>
+     <% end %>
+    <% end %>
+  </div>
+</div>
+
+

@@ -10,100 +10,11 @@
           <li ><%= link_to image_tag "twitter.png",  class: 'social' %></li>
           <li ><%= link_to image_tag "linkedin.png", class: 'social'  %></li>
           <li><%= link_to "Home" %></li>
-           <li> <a href="#" id="about">Login</a> </li>
-           <li> <a href="#" id="projects">SignUp</a> </li>
+           <li><%= link_to "LogIn", new_user_session_path %> </li>
+           <li><%= link_to "SignUp", new_user_registration_path %></li>
           <li><%= link_to "AboutUs" %></li>
           <li> <a href="#" id="contact" >Contact</a> </li>
       </ul>
     </div>
   </div>
 </nav>
-<!-- contact poup-->
-<article id="popupContact" class="popupContact">
-  <div class="customScrollBox">
-    <div class="content"> <a id="popupContactClose">
-    <button type="button" class="cros" data-dismiss="modal">&times;</button></a>
-      <%= render 'home/contactpop' %>
-   </div>
-  </div>
-</article>
-<!--end -->
-<!-- about poup-->
-<article id="popupAbout" class="popupAbout">
-  <div class="customScrollBox">
-    <div class="content"> <a id="popupAboutClose"><button type="button" class="cros" data-dismiss="modal">&times;</button></a>
-      <%= render 'home/loginpop' %>
-    </div>
-  </div>
-</article>
-<!--end -->
-<!-- login poup-->
-<article id="popupProjects" class="popupProjects">
-  <div class="customScrollBox">
-     <div class="content"> <a id="popupProjectsClose"><button type="button" class="cros" data-dismiss="modal">&times;</button></a>
-      <%= render 'home/signuppop' %>
-    </div>
- </div>
-</article>
-<!--end -->
-<!-- signup poup-->
-<article id="popupBlog" class="popupContact">
-  <div class="customScrollBox">
- </div>
-</article>
-<!--end -->
-<script>
-var popupContactStatus = 0;
-      
-      function loadPopupContact(){
-        if(popupContactStatus==0){
-          $("#popupContact").fadeIn("slow");
-          popupContactStatus = 1;
-        }
-      }
-      
-      function disablePopupContact(){
-        if(popupContactStatus==1){
-          $("#popupContact").fadeOut("slow");
-          popupContactStatus = 0;
-        }
-      }
-      
-      function centerPopupContact(){
-        var windowWidth = document.documentElement.clientWidth;
-        var windowHeight = document.documentElement.clientHeight;
-        var popupContactHeight = $("#popupContact").height();
-        var popupContactWidth = $("#popupContact").width();
-        $("#popupContact").css({
-          "position": "absolute",
-          "top": windowHeight/2-popupContactHeight/2,
-          "left": windowWidth/2-popupContactWidth/2
-        });
-      }
-      
-      
-      $(document).ready(function(){
-        $("#popupContact").fadeOut();
-        popupContactStatus = 0;
-        $("#contact").click(function(){
-        $("#popupContact").css({
-          "visibility": "visible" });
-          disablePopupAbout();
-          disablePopupProjects();
-          disablePopupBlog();         
-          centerPopupContact();
-          loadPopupContact();
-            $("#popupContact").mCustomScrollbar("vertical",400,"easeOutCirc",1.05,"auto","yes","yes",10);           
-        });
-        $("#popupContactClose").click(function(){
-          disablePopupContact();
-        });
-        $("#bg").click(function(){
-          disablePopupContact();
-        });
-        $(document).keyup(function(e){
-        if(e.keyCode === 27)
-          disablePopupContact();
-      });
-      });
-</script>

@@ -1,29 +1,6 @@
 class HomeController < ApplicationController
-  def new
-  end
+before_action :authenticate_user!
 
-  def show
-  end
-
-  def create
-  end
-
-  def index
-  end
-
-  def destroy
-  end
-
-  def update
-  end
-
-  def contactus
-  end
-
-  def aboutus
-    respond_to do |format|
-    format.js { render :layout=>false }
-  end
-  end
-  
+  def index    
+  end  
 end

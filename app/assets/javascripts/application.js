@@ -20,5 +20,3 @@
 //= require autocomplete-rails
 //= require bootstrap
 //= require bootstrap.min
-
-
