@@ -7,32 +7,38 @@
 {
 	font-family: 'caviar_dreamsbold';
 }
-.glyphicon-comment,.remove1{
-color: lightgreen;
-font-size: 20px;
+.glyphicon-comment,.remove1
+{
+	color: lightgreen;
+	font-size: 20px;
 }
-.box2{
+.box2
+{
 	background-color: lightgrey;
 	border-style:solid;
 }
-.imageshow{
+.imageshow
+{
 
 	margin-top: 50px;
 }
-.social-share-button{
-	    width: 61px;
+.social-share-button
+{
+	width: 61px;
     display: -webkit-inline-box;
 }
-}
+
 
 .navbar
 {
 	box-shadow:5px 10px 20px #707070;
 }
-#text{
+#text
+{
 	margin-left: 35%;
 }
-#list{
+#list
+{
 	margin-left:0px;
 	margin-top: 50px;
 }
@@ -42,13 +48,14 @@ font-size: 20px;
 	height:200px;
 	border-radius: 60px;
 }
-.conte{
+.conte
+{
 	margin-left: 512px;
 }
 .navbar-brand
 {
-margin-top: 10px;
-float: right;
+	margin-top: 10px;
+	float: right;
 }
 .logo
 {
@@ -58,7 +65,8 @@ float: right;
 	float:left;	
 }
 
-.profile{
+.profile
+{
 	border-radius: 5px;
 	margin-top:10px;
 	width: 40px;
@@ -66,7 +74,8 @@ float: right;
 	float:right;	
 }
 
-.social{
+.social
+{
 	width: 25px;
 	height: 25px;
 	float :left;
@@ -76,7 +85,8 @@ float: right;
 	margin-top: 130px;
 	
 }
-.formpop{
+.formpop
+{
 	margin-top: 0px;
 }
 .badge1
@@ -154,8 +164,8 @@ float: right;
 
 .e1,.p1
 {
-background: transparent;
-border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
+	background: transparent;
+	border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	border-radius: 2px;
 	color: black;
 	font-family: 'Exo', sans-serif;
@@ -163,8 +173,9 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	font-weight: 400;
 
 }
-.e2,.p2{
-border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
+.e2,.p2
+{
+	border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	border-radius: 2px;
 	color: black;
 	font-family: 'Exo', sans-serif;
@@ -186,25 +197,23 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 {
 	border: 2px solid MediumSpringGreen; /*login and signup button effect*/
 }
-.log1{
+.log1
+{
 	width: 255px;
 }
-/*****end*****/
-
-/*****gallery page css*****/
 #content
 {
 	background-color: #f7f7f7;
 	height:700px;
 }
 #picturelist
- {
+{
 	text-align:center;
 	margin-right:auto;
 	margin-left:auto;
 }
 #picturelist1,.image_view
- {
+{
 	list-style:none;
 	float:left;
 	margin:42px;
@@ -236,8 +245,6 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	-moz-box-shadow:0px 0px 20px gray; /*Mozilla shadow version*/
 	opacity: 1;
 }
-/*****end*****/
-
 /*****Album page css*****/
 
 #picturelist1 img
@@ -253,9 +260,9 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	text-align:center;
 	margin-right:auto;
 	margin-left:auto;
-
 }
-.comm2{
+.comm2
+{
 	margin-top: 60px;
 	text-align:center;
 	width:360px; 
@@ -266,7 +273,8 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	background-image: url("back143.svg");
 	
 }
-.hel{
+.hel
+{
 	margin-left:5px; 
 	margin-top: 43px;
 	width:325px;
@@ -275,8 +283,9 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 }
 
 /*background-image: url("back3.jpg");*/
-}
-#comment23{
+
+#comment23
+{
 	border-bottom: 1px solid grey;
 	border-top:  1px solid grey;
 	margin-top: 30px;
@@ -285,6 +294,7 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	width:310px;
 	word-wrap: break-word;
 	font-size: 15px;
+}
 
 #picturelist1,.image_view 
 {
@@ -327,17 +337,19 @@ strong
 	color:lightpink;
 	text-transform: capitalize;
 }
-b{
+b
+{
 	color:#008B8B;
 	text-transform: capitalize;
 }	
-}
+
 .jumbotron
 {
 	
 	box-shadow: 10px 10px 5px #888888;	
 }
-#cen,.jumbotron,.alert{
+#cen,.jumbotron,.alert
+{
 	font-family: 'caviar_dreamsbold';	
 }
 /*images new page*/
@@ -359,7 +371,8 @@ b{
 	margin-top: 0px;
 	text-align: center;
 }
-#content3{
+#content3
+{
 	margin-top: 80px;
 }
 
@@ -368,7 +381,8 @@ b{
 	background:lightgrey;
 	text-align:center;
 }
-.grid1 img{
+.grid1 img
+{
 	background:#fff;
 	padding:3px;
 	border-radius: 50%;
@@ -385,6 +399,7 @@ b{
 	width:250px;
 }
 /*slide show*/
-.wrapper {
+.wrapper 
+{
   overflow: hidden;
 }
