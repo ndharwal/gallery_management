@@ -264,6 +264,15 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	background-repeat: no-repeat;
 	background-position: absolute;
 	background-image: url("back143.svg");
+	
+}
+.hel{
+	margin-left:5px; 
+	margin-top: 43px;
+	width:325px;
+	height:200px;
+	overflow: scroll;
+}
 
 /*background-image: url("back3.jpg");*/
 }
@@ -271,12 +280,12 @@ border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	border-bottom: 1px solid grey;
 	border-top:  1px solid grey;
 	margin-top: 30px;
-	margin-left: 5px;
+	margin-left: 7px;
 	color:#FF9E5E;	
 	width:310px;
 	word-wrap: break-word;
 	font-size: 15px;
-}
+
 #picturelist1,.image_view 
 {
 	list-style:none;

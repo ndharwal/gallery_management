@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-      @comment = @commentable.comments.new(params_comment)
+    @comment = @commentable.comments.new(params_comment)
     if @comment.save
       flash[:success] = "you have commented"
       check

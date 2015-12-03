@@ -30,10 +30,11 @@
         <% end %>
         </div>
         <div class="col-sm-5 comm2">
+        <div class="hel">
           <p>Comment box</p>
-          <% comment = commentlimit(album) %>
-          <%if comment.present? %>
-            <% comment.each do |p| %>
+          <% comments = commentlimit(album) %>
+          <%if comments.present? %>
+            <% comments.each do |p| %>
               <p id="comment23" class="alert alert-info">
                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;
                  </a>
@@ -42,6 +43,7 @@
               </p>
             <% end %>
           <% end %>
+        </div>
       </li>
     </div>
   <% end %>

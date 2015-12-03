@@ -42,7 +42,7 @@ class ImagesController < ApplicationController
 
   def show
     @image = @album.images.where(:id => params[:id]).first
-    @comments = @image.comments.reorder('created_at DESC')
+    @comments = @image.comments.reorder('created_at DESC') # need scope
     @comments = @comments.paginate(:page => params[:page], per_page: 5)    
     respond_to do |format|
       format.js {}
