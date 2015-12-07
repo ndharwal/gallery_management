@@ -132,35 +132,16 @@
 	left: -20px;
 	right: -40px;
 	bottom: -40px;
-	background: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg) repeat-x;
+	background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
 	background-size: cover;
 	z-index: 0;
 	 filter: blur(20px);
   	height: 800px;
  	width: 1376px;
-  -webkit-animation: slide 40s linear infinite;
-  	-moz-animation: slide 40s linear infinite;
-}
-@-moz-keyframes slide {
-    0%   {background: url(http://www.successcorners.com/wp-content/uploads/2015/06/website-background-wincustomize-explore-clouds-284048.jpg);}
-    25%  {background: url(http://www.bigfatmarketing.com/wp-content/uploads/2014/09/web-background-website-linux-freedom-upgrade-187984.jpg);}
-    50%  {background: url(http://freedwallpaper.com/wp-content/uploads/2014/09/background-wallpapers-1862885229.jpg);}
-    100% {background: url(http://thumbs.dreamstime.com/z/seamless-abstract-pattern-blue-background-textiles-interior-design-book-design-website-34311830.jpg);}
-}
-/*Chrome, Safari, Opera */
-@-webkit-keyframes slide {
-    0%   {background: url(http://www.successcorners.com/wp-content/uploads/2015/06/website-background-wincustomize-explore-clouds-284048.jpg);}
-    25%  {background: url(http://www.bigfatmarketing.com/wp-content/uploads/2014/09/web-background-website-linux-freedom-upgrade-187984.jpg);}
-    50%  {background: url(http://freedwallpaper.com/wp-content/uploads/2014/09/background-wallpapers-1862885229.jpg);}
-    100% {background: url(http://thumbs.dreamstime.com/z/seamless-abstract-pattern-blue-background-textiles-interior-design-book-design-website-34311830.jpg);}
+
 }
 
-@keyframes slide {
-    0%   {background: url(http://www.successcorners.com/wp-content/uploads/2015/06/website-background-wincustomize-explore-clouds-284048.jpg);}
-    25%  {background: url(http://www.bigfatmarketing.com/wp-content/uploads/2014/09/web-background-website-linux-freedom-upgrade-187984.jpg);}
-    50%  {background: url(http://freedwallpaper.com/wp-content/uploads/2014/09/background-wallpapers-1862885229.jpg);}
-    100% {background: url(http://thumbs.dreamstime.com/z/seamless-abstract-pattern-blue-background-textiles-interior-design-book-design-website-34311830.jpg);}
-}
+
 
 .e1,.p1
 {
