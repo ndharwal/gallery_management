@@ -1,6 +1,8 @@
-    <% if @comments.present? %>
-      <% @comments.each do |p| %>
-        <p><%= p.comment %></p>
-      <% end %>
-    <% end %>
-    <%= will_paginate @comments %>
+<% @comments.each do |com| %>
+  <p class="alert alert-info">
+     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;
+     </a>
+  <%= com.comment %>
+  <%= link_to "",album_comment_path(com.commentable_id, com.id), class: 'glyphicon glyphicon-remove comment_delete', remote: true, :method => :delete %>
+  </p>
+<% end %>

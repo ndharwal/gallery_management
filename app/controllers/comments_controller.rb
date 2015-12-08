@@ -1,13 +1,9 @@
 class CommentsController < ApplicationController
- before_action :set_value
+ before_action :initialization
 
-  def index
-    @comments = @commentable.comments.all
-  end
 
   def new
     @comment = @commentable.comments.new
-
     respond_to do |format|
       format.js {}
       format.html { redirect_to :back }
@@ -17,15 +13,13 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.new(params_comment)
     if @comment.save
-      flash[:success] = "you have commented"
-      check
+      flash.now[:success] = "you have commented"
     end
-  end
-
-  def edit
-  end
-
-  def update
+    @comments = @commentable.comments.where(:commentable_id => @commentable.id).all
+    respond_to do |format|
+      format.js { }
+      format.html {}
+    end   
   end
 
   def show
@@ -33,23 +27,20 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = @commentable.comments.where(:commentable_id => @commentable.id).first
-    if @comment.destroy
-      flash[:success] = "comment deleted"
-      check
+    @comments = @commentable.comments.where(:commentable_id => @commentable.id).all
+    comment = @comments.where(:id => params[:id]).first
+    if comment.destroy
+      flash.now[:success] = "comment deleted"
+    end
+    @comments = @commentable.comments.where(:commentable_id => @commentable.id).all
+    respond_to do |format|
+      format.js {}
+      format.html {}
     end
   end
 
-  def check
-    if params[:album_id]
-      redirect_to :back
-    else
-      redirect_to :back
-    end
-  end
-  
   private
-  def set_value
+  def initialization 
     if params[:album_id]
       @commentable = Album.where(:id => params[:album_id]).first
     else

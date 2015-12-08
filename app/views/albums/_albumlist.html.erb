@@ -5,7 +5,6 @@
     <%= submit_tag "Search", :name => nil %>
   <%end%>
 <ul id="picturelist1">
-  <%#= current_user.full_name %>
   <% @albums.each do |album|  %>
     <div class="col-sm-7">
       <li class="image_view">
@@ -30,18 +29,11 @@
         <% end %>
         </div>
         <div class="col-sm-5 comm2">
-        <div class="hel">
+        <div class="hel" id="album_comment_<%= album.id %>">
           <p>Comment box</p>
-          <% comments = commentlimit(album) %>
-          <%if comments.present? %>
-            <% comments.each do |p| %>
-              <p id="comment23" class="alert alert-info">
-                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;
-                 </a>
-              <%= p.comment %>
-              <%= link_to "",album_comment_path(album.id, p.id), class: 'glyphicon glyphicon-remove', :method => :delete , data: { confirm: 'Are you sure?' } %>
-              </p>
-            <% end %>
+          <% @comments = commentlimit(album) %>
+          <%if @comments.present? %>
+            <%= render 'comments/commentshow' %>
           <% end %>
         </div>
       </li>
@@ -59,27 +51,7 @@
      else{
       $("#products_search").submit();
      }
-    });
-  $(".modal-open").on('click',function() {
-    $('.myModal').modal('show')
   });
 </script>
-
 <!-- Modal -->
-<div class="modal fade myModal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Comment box for album</h4>
-      </div>
-      <div class="modal-body">
-        <div id="part">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+<div id="comment_popup"></div>

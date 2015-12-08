@@ -1,10 +1,10 @@
 class AlbumsController < ApplicationController
-  before_action :set_default, only: [:show, :update, :destroy, :edit, :coverpage]
+  before_action :initilize_album, only: [:show, :update, :destroy, :edit, :coverpage]
   respond_to :html, :js
   
-  def index
+  def index 
     @albums = current_user.albums.sort
-    if params[:search]
+    if params[:search].present?
       @albums = @albums.search(params[:search])
     end
     response_with_format
@@ -51,7 +51,9 @@ class AlbumsController < ApplicationController
   end
 
   def coverpage
-    if @album.images.where(:id => params[:image_id]).present? 
+    varable = @album.images.where(:id => params[:image_id])
+    
+    if varable.present?
       if @album.update_attributes(:cover_id => params[:image_id])
         flash.now[:success] = "Successfuly Cover photo set"
         @albums = current_user.albums
@@ -67,7 +69,7 @@ class AlbumsController < ApplicationController
 
   private
  
-  def set_default
+  def initilize_album
     @album = current_user.albums.where(:id => params[:id]).first
     if @album.blank?
       redirect_to root_path
