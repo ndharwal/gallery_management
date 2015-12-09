@@ -50,7 +50,8 @@ class ImagesController < ApplicationController
     end
   end
 
-  def edit
+  def total_images
+  @images = @album.images.all   
   end 
 
   private

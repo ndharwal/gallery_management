@@ -68,10 +68,6 @@ class AlbumsController < ApplicationController
     response_with_format
   end
 
-  def total_albums
-    
-  end
-
   private
  
   def initilize_album

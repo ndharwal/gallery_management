@@ -232,15 +232,14 @@
 {	border-radius: 45px;
 	display:block;
 	border:2px solid gray;
-	width:360px;                  /*image gallery effect*/
-	height:380px;
+	width:344px;                  /*image gallery effect*/
+	height:343px;
 	opacity:1.7; /*initial opacity of images*/
 }
 #picturelist1
 {	background-image: url("bg2.png");
 	text-align:center;
 	margin-right:auto;
-	margin-left:auto;
 }
 .comm2
 {
@@ -386,9 +385,10 @@ b
 }
 .albums_count,.images_count
 {
-   background-color: #bbecfb;
+
    color: black;
-   box-shadow: 10px 10px 5px #888888;
+   border-bottom-right-radius: 20px;
+   border-top-left-radius: 20px;
 
 }
 .album_icon,.image_icon
@@ -399,4 +399,7 @@ b
 }
 #home{
 	margin-top: 21px;
+}
+#totalalbum{
+	margin-left: 148px;
 }
