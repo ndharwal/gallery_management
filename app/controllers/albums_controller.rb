@@ -23,10 +23,11 @@ class AlbumsController < ApplicationController
     if @album.save
       flash.now[:notice] = "Successfully Album created"
       @albums = current_user.albums
-    else
-      redirect_to :back
     end
-    response_with_format
+    respond_to do |format|
+      format.js {}
+      format.html { redirect_to user_albums_path(current_user.id) }
+    end
   end
 
   def destroy 
@@ -65,6 +66,10 @@ class AlbumsController < ApplicationController
       @albums = current_user.albums.sort
     end
     response_with_format
+  end
+
+  def total_albums
+    
   end
 
   private

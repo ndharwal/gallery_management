@@ -1,46 +1,50 @@
 <div id="list">
-<div id="flash"></div>
-  <%= form_tag(user_albums_path(current_user.id), remote: true, :method => "get", id: "products_search") do %>
-    <%= text_field_tag :search, params[:search], id: "text" %>
-    <%= submit_tag "Search", :name => nil %>
-  <%end%>
-<ul id="picturelist1">
-  <% @albums.each do |album|  %>
-    <div class="col-sm-7">
-      <li class="image_view">
-        <%= album.title %>
-        <%= link_to new_album_comment_path(album.id), remote: true, :class=>"modal-open" do %>    
-            <span class="glyphicon glyphicon-comment"></span>
-        <% end %>      
-        <% image = albumcoverpage(album) %>
-        <%if album.cover_id.present? && image.present? %>
-          <%= link_to(image_tag(image.photo_url()), user_album_path(current_user.id, album.id), remote: true, class: 'coverphoto' ) %>     
-        <% else %>
-          <%= link_to(image_tag("1.jpeg"), user_album_path(current_user.id, album.id), remote: true, class: 'coverphoto' ) %>
-        <% end %>      
-        <%= link_to user_album_path(current_user.id, album.id), remote: true do %>    
-          <span class="glyphicon glyphicon-open"></span>
-        <% end %>
-        <%= link_to edit_user_album_path(current_user.id, album.id), remote: true do%>
-          <span class="glyphicon glyphicon-edit"></span>
-        <% end %>
-        <%= link_to user_album_path(current_user.id, album.id), remote: true, :method => :delete , data: { confirm: 'Are you sure?' } do%>
-          <span class="glyphicon glyphicon-remove"></span>  
-        <% end %>
-        </div>
-        <div class="col-sm-5 comm2">
-        <div class="hel" id="album_comment_<%= album.id %>">
-          <p>Comment box</p>
-          <% @comments = commentlimit(album) %>
-          <%if @comments.present? %>
-            <%= render 'comments/commentshow' %>
+  <div id="flash"></div>
+    <ol class="breadcrumb">
+    <li><%= link_to "Home", root_path %></li>
+    <li class="active">Albums</li>       
+  </ol>
+    <%= form_tag(user_albums_path(current_user.id), remote: true, :method => "get", id: "products_search") do %>
+      <%= text_field_tag :search, params[:search], id: "text" %>
+      <%= submit_tag "Search", :name => nil %>
+    <%end%>
+  <ul id="picturelist1">
+    <% @albums.each do |album|  %>
+      <div class="col-sm-7">
+        <li class="image_view">
+          <%= album.title %>
+          <%= link_to new_album_comment_path(album.id), remote: true, :class=>"modal-open" do %>    
+              <span class="glyphicon glyphicon-comment"></span>
+          <% end %>      
+          <% image = albumcoverpage(album) %>
+          <%if album.cover_id.present? && image.present? %>
+            <%= link_to(image_tag(image.photo_url()), user_album_path(current_user.id, album.id), remote: true, class: 'coverphoto' ) %>     
+          <% else %>
+            <%= link_to(image_tag("1.jpeg"), user_album_path(current_user.id, album.id), remote: true, class: 'coverphoto' ) %>
+          <% end %>      
+          <%= link_to user_album_path(current_user.id, album.id), remote: true do %>    
+            <span class="glyphicon glyphicon-open"></span>
           <% end %>
-        </div>
-      </li>
-    </div>
-  <% end %>
-</ul>
-  </div>
+          <%= link_to edit_user_album_path(current_user.id, album.id), remote: true do%>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+          <%= link_to user_album_path(current_user.id, album.id), remote: true, :method => :delete , data: { confirm: 'Are you sure?' } do%>
+            <span class="glyphicon glyphicon-remove"></span>  
+          <% end %>
+          </div>
+          <div class="col-sm-5 comm2">
+          <div class="hel" id="album_comment_<%= album.id %>">
+            <p>Comment box</p>
+            <% @comments = commentlimit(album) %>
+            <%if @comments.present? %>
+              <%= render 'comments/commentshow' %>
+            <% end %>
+          </div>
+        </li>
+      </div>
+    <% end %>
+  </ul>
+</div>
 <script>
   $("#products_search input").on('keyup',function() {
      var s = $(this).val();

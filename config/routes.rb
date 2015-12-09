@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   
   resources :albums, only: :coverpage do 
      member do 
-      put 'coverpage'
+      put 'coverpage'    
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

@@ -325,8 +325,8 @@ b
 }	
 
 .jumbotron
-{
-	
+{	margin-top: 40px;
+	background-color: #bbecfb;
 	box-shadow: 10px 10px 5px #888888;	
 }
 #cen,.jumbotron,.alert
@@ -383,4 +383,20 @@ b
 .wrapper 
 {
   overflow: hidden;
+}
+.albums_count,.images_count
+{
+   background-color: #bbecfb;
+   color: black;
+   box-shadow: 10px 10px 5px #888888;
+
+}
+.album_icon,.image_icon
+{	
+	width: 45px;
+	height: 45px;
+
+}
+#home{
+	margin-top: 21px;
 }

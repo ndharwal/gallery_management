@@ -2,3 +2,17 @@
   <div id ="flash"></div>
   <%= render 'albumpage' %>   
 </div>
+<div class="container-fluid text-center">
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-5 albums_count">
+      <h4>Albums</h4>
+      <%= link_to(image_tag("album3.png"),class: 'album_icon' ) %>           <p><%= @albums.count%></p>
+    </div>
+    <div class="col-sm-offset-1 col-sm-4 images_count">
+      <h4>Images</h4>
+      <%= link_to(image_tag("image1.png"),class: 'image_icon' ) %>
+      <% image_count %>
+      <p><%= @counting %></p>
+    </div>  
+  </div>
+</div>

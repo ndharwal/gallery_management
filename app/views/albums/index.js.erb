@@ -1,6 +1,6 @@
-
- $('#list').load("<%= j (render 'albumlist') %>", function () {
+$('#list').load("<%= j (render 'albumlist') %>", function () {
      setTimeout(function(){
-  $('.myModal').modal('hide')   
+  $('.myModal').modal('hide')
+	
    }, 100)  
-  });
+});
