@@ -1,17 +1,32 @@
 <ul id="picturelist">  
-    <% @images.each do |image| %>
-      <li class="image_view">
-        <%= image.img_name %>
-        <%= link_to "Set as Cover photo", coverpage_album_path(@album.id, :image_id => image.id), method: :put, remote: true %>
-        <%= image_tag image.photo_url() %>   
-        <%= link_to user_album_image_path(current_user.id,@album.id,image.id) do %>    
-          <span class="glyphicon glyphicon-comment"></span>
+  <% @images.each do |image| %>
+    <li class="image_view">
+      <%= image.img_name %>
+      <%= link_to "Set as Cover photo", coverpage_album_path(@album.id, :image_id => image.id), method: :put, remote: true %>
+      <%= image_tag image.photo_url() %>   
+      <%= link_to new_image_comment_path(image.id), remote:true do %>   <span class="glyphicon glyphicon-comment"></span>
+      <% end %>
+      <%= link_to user_album_image_path(current_user.id, @album.id, image.id),:method => :delete ,:remote => true, data: { confirm: 'Are you sure?' } do%>
+        <span class="glyphicon glyphicon-remove remove1"></span>  
+      <% end %> 
+      <%= social_share_button_tag() %> 
+      <div class="slide_commentbox">
+      </div>
+      <div id="image_comment_show<%= image.id %>">
+       <% if @comments.present? %>
+          <% @comments.each do |p| %>
+            <p ><%= p.comment %>
+            <%= link_to "",image_comment_path(image.id, p.id), class: 'glyphicon glyphicon-remove', :method => :delete , data: { confirm: 'Are you sure?' } %>
+            <%= social_share_button_tag() %></p>
+         <% end %>   ---------------------------------------------
         <% end %>
-        <%= link_to user_album_image_path(current_user.id, @album.id, image.id),:method => :delete ,:remote => true, data: { confirm: 'Are you sure?' } do%>
-          <span class="glyphicon glyphicon-remove remove1"></span>  
-        <% end %> 
-        <%= social_share_button_tag() %>
-        <%= "comment" %>          
-      </li>    
+      </div>       
+    </li>  
   <% end %>
 </ul>
+
+<script>
+
+
+
+</script>

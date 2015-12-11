@@ -1,21 +1,11 @@
 <div class="row imageshow">
+<ol class="breadcrumb">
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "Albums", user_albums_path(current_user.id) %></li>
+    <li><%= link_to "Images", user_album_path(current_user.id, params[:album_id])  %></li>
+    <li class="active">Image</li>       
+  </ol> 
   <div class="col-sm-5 col-sm-offset-1">
     <%= image_tag @image.photo_url() %> 
-  </div>
-  <div class="col-sm-6 box2">
-    <%= link_to "Comment", new_image_comment_path(@image.id), class: 'conte1', remote: true %>
-    <div id="part" > 
-    </div>
-    <div id= "messages123">
-        <% if @comments.present? %>
-      <% @comments.each do |p| %>
-        <p ><%= p.comment %>
-        <%= link_to "",image_comment_path(@image.id, p.id), class: 'glyphicon glyphicon-remove', :method => :delete , data: { confirm: 'Are you sure?' } %>
-        <%= social_share_button_tag() %></p>
-        ---------------------------------------------
-      <% end %>
-    <% end %><br>
-    <%= will_paginate @comments %>
-    </div>
   </div>
 </div>

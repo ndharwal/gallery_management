@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new
     respond_to do |format|
       format.js {}
-      format.html { redirect_to :back }
+      format.html {}
     end
   end
 
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     if @comment.save
       flash.now[:success] = "you have commented"
     end
-    @comments = @commentable.comments.where(:commentable_id => @commentable.id).all
+    @comments = @commentable.comments.where(:commentable_id => @commentable.id)
     respond_to do |format|
       format.js { }
       format.html {}
@@ -23,16 +23,16 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comments = @commentable.comments.where(:commentable_id => @commentable.id).all
+    @comments = @commentable.comments.where(:commentable_id => @commentable.id)
   end
 
   def destroy
-    @comments = @commentable.comments.where(:commentable_id => @commentable.id).all
+    @comments = @commentable.comments.where(:commentable_id => @commentable.id)
     comment = @comments.where(:id => params[:id]).first
     if comment.destroy
       flash.now[:success] = "comment deleted"
     end
-    @comments = @commentable.comments.where(:commentable_id => @commentable.id).all
+    @comments = @commentable.comments.where(:commentable_id => @commentable.id)
     respond_to do |format|
       format.js {}
       format.html {}
@@ -40,7 +40,8 @@ class CommentsController < ApplicationController
   end
 
   private
-  def initialization 
+  def initialization  
+  
     if params[:album_id]
       @commentable = Album.where(:id => params[:album_id]).first
     else

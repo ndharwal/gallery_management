@@ -6,13 +6,39 @@
   <div class="row">
     <div class="col-sm-offset-1 col-sm-5 albums_count">
       <h4>Albums</h4>
-      <%= link_to(image_tag("album3.png"), class: 'album_icon' ) %>   <p><%= @albums.count%></p>
+      <%= link_to image_tag("album3.png", :id => "album_list_open") %>
+      <p><%= @albums.count%></p>
+      <ul id="album_list">
+        <% @albums.each do |album| %>
+         <li><%= link_to album.title, user_album_path(current_user.id, album.id) %></li>
+        <% end %>
+      </ul>
     </div>
     <div class="col-sm-offset-1 col-sm-4 images_count">
       <h4>Images</h4>
-      <%= link_to(image_tag("image1.png"),class: 'image_icon' ) %>
-      <% image_count %>
-      <p><%= @counting %></p>
+      <%= link_to image_tag("image1.png", :id =>"image_list_open") %>
+      <p><%= @images.count %></p>
+      <ul id="image_list">
+        <% @images.each do |image| %>
+         <li><%= link_to image.img_name, user_album_image_path(current_user.id,image.album_id, image.id ) %></li>
+        <% end %>     
+      </ul>
     </div>  
   </div>
 </div>
+<script>
+$(document).ready(function(){
+  $("#album_list").hide();
+  $("#album_list_open").click(function(event){
+    $("#album_list").toggle();
+    event.preventDefault();
+  });
+});
+$(document).ready(function(){
+  $("#image_list").hide();
+  $("#image_list_open").click(function(event){
+    $("#image_list").toggle();
+    event.preventDefault();
+  });
+});
+</script>

@@ -1,2 +1,10 @@
-$('#comment_popup').html("<%= j (render 'commentcreate') %>");
-$('#myModal1').modal('show')
+if(<%= params[:album_id].present? %>)
+{
+	$('#comment_popup').html("<%= j (render 'commentcreate') %>");
+	$('#myModal1').modal('show')
+}
+else
+{
+	$('.slide_commentbox').html("<%= j (render 'for_image_comment') %>");
+	$('.slide_commentbox').toggle();
+}

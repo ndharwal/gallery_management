@@ -1,2 +1,3 @@
-$('#album_comment_<%= @commentable.id %>').html("<%= j (render 'commentshow' ) %>");
+var id = (<%= params[:image_id].present? %>) ? '#image_comment_show<%= @commentable.id %>' : '#album_comment_<%= @commentable.id %>' ;
+$(id).html("<%= j (render 'commentshow' ) %>");
 $('#flash').html("<%= j (render 'home/flash') %>");

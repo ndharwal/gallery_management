@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :albums
+  has_many :images, through: :albums
   validates :fname, :lname, :contact, presence: true
   validates :contact, length: { minimum: 10, maximum: 10 }, numericality: true
   # Include default devise modules. Others available are:
