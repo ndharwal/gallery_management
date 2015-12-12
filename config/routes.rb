@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'home/index'
-  resources :user do
+  resources :users, only: :show do
     resources :albums do
       resources :images
     end
