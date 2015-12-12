@@ -5,6 +5,6 @@ if(<%= params[:album_id].present? %>)
 }
 else
 {
-	$('.slide_commentbox').html("<%= j (render 'for_image_comment') %>");
-	$('.slide_commentbox').toggle();
+	$('.slide_commentbox<%= @commentable.id %>').html("<%= j (render 'for_image_comment') %>");
+	$('.slide_commentbox<%= @commentable.id %>').toggle();
 }

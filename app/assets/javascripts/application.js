@@ -13,10 +13,12 @@
 //= require jquery
 //= require fancybox
 //= require jquery_ujs
+//= require custom
 //= require turbolinks
 //= require social-share-button
 //= require jquery-ui
 //= require autocomplete-rails
 //= require bootstrap
 //= require bootstrap.min
+
 

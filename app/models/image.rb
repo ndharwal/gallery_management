@@ -4,4 +4,5 @@ class Image < ActiveRecord::Base
   belongs_to :user
   validates :img_name, presence: true
   mount_uploader :photo, PhotoUploader
+  scope :sort, -> { order(:created_at => :DESC ) }
 end

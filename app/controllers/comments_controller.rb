@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
  before_action :initialization
 
-
   def new
     @comment = @commentable.comments.new
     respond_to do |format|
@@ -14,25 +13,29 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new(params_comment)
     if @comment.save
       flash.now[:success] = "you have commented"
-    end
-    @comments = @commentable.comments.where(:commentable_id => @commentable.id)
+    else
+      flash.now[:success] = "Not commented"
+    end  
+    @comments = @commentable.comments.get_comment(@commentable.id)
     respond_to do |format|
       format.js { }
       format.html {}
     end   
   end
 
-  def show
-    @comments = @commentable.comments.where(:commentable_id => @commentable.id)
+  def show 
+    @comments = @commentable.comments.get_comment(@commentable.id)
   end
 
   def destroy
-    @comments = @commentable.comments.where(:commentable_id => @commentable.id)
+    @comments = @commentable.comments.get_comment(@commentable.id)
     comment = @comments.where(:id => params[:id]).first
     if comment.destroy
       flash.now[:success] = "comment deleted"
+    else
+      flash.now[:success] = "Not Deleted"
     end
-    @comments = @commentable.comments.where(:commentable_id => @commentable.id)
+    @comments = @commentable.comments.get_comment(@commentable.id)
     respond_to do |format|
       format.js {}
       format.html {}
@@ -40,8 +43,8 @@ class CommentsController < ApplicationController
   end
 
   private
+
   def initialization  
-  
     if params[:album_id]
       @commentable = Album.where(:id => params[:album_id]).first
     else
@@ -50,6 +53,6 @@ class CommentsController < ApplicationController
   end
 
   def params_comment
-   params.require(:comment).permit(:comment)
+    params.require(:comment).permit(:comment)
   end
 end

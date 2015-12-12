@@ -10,7 +10,7 @@
         <span class="glyphicon glyphicon-remove remove1"></span>  
       <% end %> 
       <%= social_share_button_tag() %> 
-      <div class="slide_commentbox">
+      <div class="slide_commentbox<%= image.id %>">
       </div>
       <div id="image_comment_show<%= image.id %>">
        <% if @comments.present? %>
@@ -24,9 +24,3 @@
     </li>  
   <% end %>
 </ul>
-
-<script>
-
-
-
-</script>

@@ -1,5 +1,5 @@
 var id = (<%= params[:image_id].present? %>) ? '#image_comment_show<%= @commentable.id %>' : '#album_comment_<%= @commentable.id %>' ;
 $(id).html("<%= j (render 'commentshow' ) %>");
 $('#flash').html("<%= j (render 'home/flash') %>");
-$('.slide_commentbox').hide();
+$('.slide_commentbox<%= @commentable.id %>').hide();
 $('.myModal').modal('hide'); 
