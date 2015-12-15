@@ -2,8 +2,10 @@ class AlbumsController < ApplicationController
   before_action :initilize_album, only: [:show, :update, :destroy, :edit, :coverpage]
   respond_to :html, :js
   
+  
   def index 
-    @albums = current_user.albums.sort
+    @user = User.where(:id => params[:user_id]).first
+    @albums = @user.albums.sort
     if params[:search].present?
       @albums = @albums.search(params[:search])
     end
@@ -11,7 +13,8 @@ class AlbumsController < ApplicationController
   end
 
   def new
-    @album = current_user.albums.new
+    @user = User.where(:id => params[:user_id]).first
+    @album = @user.albums.new
   end
 
   def show
@@ -19,10 +22,11 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = current_user.albums.new(album_params)
+    @user = User.where(:id => params[:user_id]).first
+    @album = @user.albums.new(album_params)
     if @album.save
       flash.now[:notice] = "Successfully Album created"
-      @albums = current_user.albums
+      @albums = @user.albums
     end
     respond_to do |format|
       format.js {}
@@ -33,7 +37,7 @@ class AlbumsController < ApplicationController
   def destroy 
     if @album.destroy
       flash.now[:notice] = "Album Successfuly Deleted" 
-      @albums = current_user.albums
+      @albums = @user.albums
     end
     response_with_format
   end
@@ -44,7 +48,7 @@ class AlbumsController < ApplicationController
   def update
     if @album.update_attributes(album_params)
       flash.now[:success] = "Successfuly Updated"
-      @albums = current_user.albums.sort
+      @albums = @user.albums.sort
     else
       render 'edit' 
     end
@@ -52,9 +56,9 @@ class AlbumsController < ApplicationController
   end
 
   def coverpage
-    varable = @album.images.where(:id => params[:image_id])
+    variable = @album.images.where(:id => params[:image_id])
     
-    if varable.present?
+    if variable.present?
       if @album.update_attributes(:cover_id => params[:image_id])
         flash.now[:success] = "Successfuly Cover photo set"
         @albums = current_user.albums
@@ -71,7 +75,8 @@ class AlbumsController < ApplicationController
   private
  
   def initilize_album
-    @album = current_user.albums.where(:id => params[:id]).first
+    @user = User.where(:id => params[:user_id]).first
+    @album = @user.albums.where(:id => params[:id]).first
     if @album.blank?
       redirect_to root_path
     end

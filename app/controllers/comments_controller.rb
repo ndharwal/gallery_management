@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
  before_action :initialization
+ before_action :authenticate_user!
 
   def new
     @comment = @commentable.comments.new
@@ -16,7 +17,7 @@ class CommentsController < ApplicationController
     else
       flash.now[:success] = "Not commented"
     end  
-    @comments = @commentable.comments.get_comment(@commentable.id)
+    @comments = @commentable.comments.get_active_comment
     respond_to do |format|
       format.js { }
       format.html {}
@@ -24,7 +25,7 @@ class CommentsController < ApplicationController
   end
 
   def show 
-    @comments = @commentable.comments.get_comment(@commentable.id)
+    @comment = @commentable.comments.get_comment(@commentable.id)
   end
 
   def destroy
@@ -46,6 +47,8 @@ class CommentsController < ApplicationController
 
   def initialization  
     if params[:album_id]
+      @user = User.where(:id => current_user.id).first 
+      @check_user_album  = @user.albums.where(:id => params[:album_id]).first
       @commentable = Album.where(:id => params[:album_id]).first
     else
       @commentable = Image.where(:id => params[:image_id]).first
@@ -53,6 +56,6 @@ class CommentsController < ApplicationController
   end
 
   def params_comment
-    params.require(:comment).permit(:comment)
+    params.require(:comment).permit(:comment, :active)
   end
 end

@@ -1,12 +1,13 @@
- <div id="cover">
-<ol class="breadcrumb">
+<div id="cover">
+  <ol class="breadcrumb">
     <li><%= link_to "Home", root_path %></li>
     <li><%= link_to "Albums", user_albums_path %></li>
     <li class="active">Images</li>       
   </ol> 
   <div id="flash"></div>
- <%= link_to "edit profile", edit_user_registration_path(current_user), class: 'conte' %> 
-  <%= link_to "Upload image", new_user_album_image_path(current_user.id,@album.id), class: 'conte1', remote: true %>
+  <% if current_user.id == @user.id %>
+    <%= link_to "Upload image", new_user_album_image_path(current_user.id, @album.id), class: 'conte1', remote: true %>
+  <% end %>
    <div id="part" style="display:none">  
   </div>   
   <% if @images.present? %>  
@@ -24,5 +25,5 @@
       </div>
     </div>
   <% end %>
-  </div>
+</div>
 

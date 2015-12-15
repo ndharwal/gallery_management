@@ -1,24 +1,24 @@
 <div class="container">
   <div class="alert">    
-      <h2>Here you can Upload multiple images....</h2>
-      <%= form_for @image, url:{action: "create"}, html: {multipart: :true, class: "form-horizontal newalbum col-sm-offset-2"} do |f| %>
-        <div class="field form-group">
-          <%= f.label :img_name, 'Title', class: 'col-sm-2 control-label' %>
-          <div class="col-sm-4">
-            <%= f.text_field :img_name, class: 'form-control', required: true %>
-          </div>
+    <h2>Here you can Upload multiple images....</h2>
+    <%= form_for @image, url:{action: "create"}, html: {multipart: :true, class: "form-horizontal newalbum col-sm-offset-2"} do |f| %>
+      <div class="field form-group">
+        <%= f.label :img_name, 'Title', class: 'col-sm-2 control-label' %>
+        <div class="col-sm-4">
+          <%= f.text_field :img_name, class: 'form-control', required: true %>
         </div>
-        <div class="field form-group">
-          <%= f.label :photo, 'Choose Image', class: 'col-sm-3 control-label' %>
-          <div class="col-sm-4">
-            <%= f.file_field :photo, required: true%>
-          </div>
+      </div>
+      <div class="field form-group">
+        <%= f.label :photo, 'Choose Image', class: 'col-sm-3 control-label' %>
+        <div class="col-sm-4">
+          <%= f.file_field :photo, required: true%>
         </div>
-         <div class="form-group action">
-          <div class="col-sm-offset-3 col-sm-2">
-            <%= f.submit 'Add', class:"btn btn-default"  %>
-          </div> 
-          </div>                       
-      <% end %>
+      </div>
+      <div class="form-group action">
+        <div class="col-sm-offset-3 col-sm-2">
+          <%= f.submit 'Add', class:"btn btn-default"  %>
+        </div> 
+      </div>                       
+    <% end %>
   </div>
 </div>

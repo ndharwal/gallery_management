@@ -1,13 +1,13 @@
 <div id="list">
   <div id="flash"></div>
-    <ol class="breadcrumb">
+  <ol class="breadcrumb">
     <li><%= link_to "Home", root_path %></li>
     <li class="active">Albums</li>       
   </ol>
-    <%= form_tag(user_albums_path(current_user.id), remote: true, :method => "get", id: "products_search") do %>
-      <%= text_field_tag :search, params[:search], id: "text" %>
-      <%= submit_tag "Search", :name => nil %>
-    <%end%>
+  <%= form_tag(user_albums_path(@user.id), remote: true, :method => "get", id: "products_search") do %>
+    <%= text_field_tag :search, params[:search], id: "text" %>
+    <%= submit_tag "Search", :name => nil %>
+  <%end%>
   <ul id="picturelist1">
     <% @albums.each do |album|  %>
       <div class="col-sm-7">
@@ -18,18 +18,20 @@
           <% end %>      
           <% image = albumcoverpage(album) %>
           <%if album.cover_id.present? && image.present? %>
-            <%= link_to(image_tag(image.photo_url()), user_album_path(current_user.id, album.id), remote: true, class: 'coverphoto' ) %>     
+            <%= link_to(image_tag(image.photo_url()), user_album_path(@user.id, album.id), remote: true, class: 'coverphoto' ) %>     
           <% else %>
-            <%= link_to(image_tag("1.jpeg"), user_album_path(current_user.id, album.id), remote: true, class: 'coverphoto' ) %>
+            <%= link_to(image_tag("1.jpeg"), user_album_path(@user.id, album.id), remote: true, class: 'coverphoto' ) %>
           <% end %>      
-          <%= link_to user_album_path(current_user.id, album.id), remote: true do %>    
+          <%= link_to user_album_path(@user.id, album.id), remote: true do %>    
             <span class="glyphicon glyphicon-open"></span>
           <% end %>
-          <%= link_to edit_user_album_path(current_user.id, album.id), remote: true do%>
-            <span class="glyphicon glyphicon-edit"></span>
-          <% end %>
-          <%= link_to user_album_path(current_user.id, album.id), remote: true, :method => :delete , data: { confirm: 'Are you sure?' } do%>
-            <span class="glyphicon glyphicon-remove"></span>  
+          <% if current_user.id == @user.id %>
+            <%= link_to edit_user_album_path(@user.id, album.id), remote: true do%>
+              <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+            <%= link_to user_album_path(@user.id, album.id), remote: true, :method => :delete , data: { confirm: 'Are you sure?' } do%>
+              <span class="glyphicon glyphicon-remove"></span>  
+            <% end %>
           <% end %>
           </div>
           <div class="col-sm-5 comm2">

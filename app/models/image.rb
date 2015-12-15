@@ -6,3 +6,4 @@ class Image < ActiveRecord::Base
   mount_uploader :photo, PhotoUploader
   scope :sort, -> { order(:created_at => :DESC ) }
 end
+

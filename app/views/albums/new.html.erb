@@ -3,23 +3,23 @@
   <h2 id="cen"> Fill the below information about your album</h2><br>
   <div class="jumbotron">
     <%= form_for @album, url: {action: "create"}, html: {class: "form-horizontal newalbum col-sm-offset-2"} do |f| %>
-        <div class="field form-group">
-          <%= f.label :title, class: 'col-sm-2 control-label' %>
-          <div class="col-sm-4">
-            <%= f.text_field :title, class: 'form-control', required: true %>
-          </div>
+      <div class="field form-group">
+        <%= f.label :title, class: 'col-sm-2 control-label' %>
+        <div class="col-sm-4">
+          <%= f.text_field :title, class: 'form-control', required: true %>
         </div>
-        <div class="field form-group">
-          <%= f.label :description, class: 'col-sm-2 control-label' %>
-          <div class="col-sm-4">
-            <%= f.text_area :description, class: 'form-control', required: true %>
-          </div>
+      </div>
+      <div class="field form-group">
+        <%= f.label :description, class: 'col-sm-2 control-label' %>
+        <div class="col-sm-4">
+          <%= f.text_area :description, class: 'form-control', required: true %>
         </div>
-        <div class="form-group action">        
-          <div class="col-sm-offset-2 col-sm-10">
-            <%= f.submit "submit", class:"btn log btn-default" %>
-          </div>
+      </div>
+      <div class="form-group action">        
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.submit "submit", class:"btn log btn-default" %>
         </div>
+      </div>
     <% end %>
   </div>
 </div>

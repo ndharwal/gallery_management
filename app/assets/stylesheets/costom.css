@@ -403,3 +403,23 @@ b
 #totalalbum{
 	margin-left: 148px;
 }
+.user_profile{
+
+	border-left: 2px lightgrey solid; 
+}
+.all_users{
+	overflow: scroll;
+	border-right: 2px lightgrey solid; 
+}
+#image_list{
+	overflow: scroll;
+	height:116px;
+	width: inherit;
+	margin-left: 123px;
+}
+#album_list{
+	overflow: scroll;
+	height:116px;
+	width: inherit;
+	margin-left: 123px;
+}

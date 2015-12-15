@@ -51,7 +51,7 @@ class ImagesController < ApplicationController
   end
 
   def total_images
-  @images = @album.images.all   
+    @images = @album.images.all   
   end 
 
   private
@@ -62,8 +62,5 @@ class ImagesController < ApplicationController
   
   def image_params
     params.require(:image).permit(:img_name, :img_url, :img_size, :album_id, :id, :photo)
-  end
-  
-
-    
+  end    
 end

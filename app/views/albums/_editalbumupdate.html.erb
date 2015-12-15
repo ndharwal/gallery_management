@@ -1,7 +1,6 @@
- <h2 id="cen">Update and edit your Album informations</h2><br>
-  <div class="jumbotron">
-    <%= form_for @album, remote: true, url: {action: "update"}, html: {class: "form-horizontal newalbum col-sm-offset-2"} do |f| %>
-       <%= render 'edit_createform', f: f %>
-    <% end %>
-  </div>
+<h2 id="cen">Update and edit your Album informations</h2><br>
+<div class="jumbotron">
+  <%= form_for @album, remote: true, url: {action: "update"}, html: {class: "form-horizontal newalbum col-sm-offset-2"} do |f| %>
+     <%= render 'edit_createform', f: f %>
+  <% end %>
 </div>

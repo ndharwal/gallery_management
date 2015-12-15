@@ -1,5 +1,5 @@
 <div class="row imageshow">
-<ol class="breadcrumb">
+  <ol class="breadcrumb">
     <li><%= link_to "Home", root_path %></li>
     <li><%= link_to "Albums", user_albums_path(current_user.id) %></li>
     <li><%= link_to "Images", user_album_path(current_user.id, params[:album_id])  %></li>
