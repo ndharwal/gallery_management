@@ -17,6 +17,7 @@
                 <% else %>
                   <%= f.hidden_field :active, :value => 'true' %>
                 <% end %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
               </div>
             </div>
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />          

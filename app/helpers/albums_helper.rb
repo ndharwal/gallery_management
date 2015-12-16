@@ -5,6 +5,6 @@ module AlbumsHelper
   end
 
   def commentlimit(album)
-    comment_page = album.comments.where(:commentable_id => album.id).limit(5)    
+    comment_page = album.comments.where(:commentable_id => album.id).limit(5).get_active_comment    
   end
 end
