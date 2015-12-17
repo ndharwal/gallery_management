@@ -74,12 +74,18 @@ class AlbumsController < ApplicationController
 
   def upvote 
     @album.upvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.js {}
+      format.html {}
+    end
   end  
 
   def downvote
     @album.downvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.js {}
+      format.html {}
+    end
   end
 
   private

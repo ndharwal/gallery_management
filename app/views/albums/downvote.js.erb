@@ -1,0 +1,1 @@
+$('#like<%= @album.id %>').html("<%= j (render 'downvote', locals: { album: @album }) %>");

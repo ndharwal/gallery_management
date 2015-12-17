@@ -423,3 +423,16 @@ b
 	width: inherit;
 	margin-left: 123px;
 }
+#album_on_profile{
+width:30px; 
+height:35px;
+
+}
+.upload{
+
+	background:transparent;
+	text-decoration: none;
+	width: 91px;
+	height: 20px;
+	margin-top: 0px;
+}

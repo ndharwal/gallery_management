@@ -38,13 +38,13 @@
     <%= f.password_field :password_confirmation, class: 'form-control e1', required:true, autofocus: true %>
   </div>
 </div>
+<div class="field form-group">
+  <%= f.label :profile_pic, 'Upload Image', class: 'col-sm-2 control-label' %>
+  <div class="col-sm-4">
+    <%= f.file_field :profile_pic, class: "upload" %>
+  </div>
 <div class="actions form-group">
   <div class="col-sm-offset-2 col-sm-10">
     <%= f.submit "save", class: 'btn log sub btn-default' %>
   </div>
 </div>
-<div class="field form-group">
-  <%= f.label :profile_pic, 'Choose Image', class: 'col-sm-3 control-label' %>
-  <div class="col-sm-4">
-    <%= f.file_field :profile_pic %>
-  </div>

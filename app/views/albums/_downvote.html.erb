@@ -1,0 +1,2 @@
+<%= link_to @album.get_upvotes.size, like_user_album_path(params[:user_id], params[:id]), method: :put , remote: true %>
+<%= link_to @album.get_downvotes.size, dislike_user_album_path(params[:user_id], params[:id]), method: :put , remote: true %>
