@@ -53,11 +53,22 @@ class ImagesController < ApplicationController
   def total_images
     @images = @album.images.all   
   end 
+    def upvote 
+    @image.upvote_by current_user
+    redirect_to :back
+  end  
+
+  def downvote 
+    @image.downvote_by current_user
+    redirect_to :back
+  end
 
   private
 
   def set_album
-    @album = current_user.albums.where(:id => params[:album_id]).first
+    @user = User.where(:id => params[:user_id]).first
+    @album = @user.albums.where(:id => params[:album_id]).first
+    @image = @album.images.where(:id => params[:id]).first
   end
   
   def image_params

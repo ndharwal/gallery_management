@@ -10,23 +10,26 @@
       <p><%= @albums.count%></p>
       <ul id="album_list">
         <% @albums.each do |album| %>
-         <li><%= link_to album.title, user_album_path(current_user.id, album.id) %></li>
+         <p><%= link_to album.title, user_album_path(current_user.id, album.id) %>
+           <b><%= album.get_likes.size %></b>
+         </p>
         <% end %>
       </ul>
-    </div>
+    </div> 
     <div class="col-sm-offset-1 col-sm-4 images_count">
       <h4>Images</h4>
       <%= link_to image_tag("image1.png", :id =>"image_list_open") %>
       <p><%= @images.count %></p>
       <ul id="image_list">
         <% @images.each do |image| %>
-         <li><%= link_to image.img_name, user_album_image_path(current_user.id,image.album_id, image.id ) %></li>
+         <p><%= link_to image.img_name, user_album_image_path(current_user.id,image.album_id, image.id ) %>
+         <b><%= image.get_likes.size %></b>
+         </p>
         <% end %>     
       </ul>
     </div>  
   </div>
 </div>
- 
 <div class="modal fade" id="myModal" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -51,6 +54,14 @@
   </div>
 </div>
 
+<% if @comments.present? && session[:notify].nil? %>
+  <script>
+    $(window).load(function(){
+      $('#myModal').modal('show');
+    });
+  </script>
+  <% session[:notify] = 'notify' %>
+<% end %>
 <script>
 $(document).ready(function(){
   $("#album_list").hide();
@@ -65,8 +76,5 @@ $(document).ready(function(){
     $("#image_list").toggle();
     event.preventDefault();
   });
-});
-$(window).load(function(){
-    $('#myModal').modal('show');
 });
 </script>

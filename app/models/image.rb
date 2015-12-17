@@ -1,5 +1,6 @@
 class Image < ActiveRecord::Base
   has_many :comments, as: :commentable, :dependent => :destroy
+  acts_as_votable
   belongs_to :album  
   belongs_to :user
   validates :img_name, presence: true

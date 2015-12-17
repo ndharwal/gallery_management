@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :initilize_album, only: [:show, :update, :destroy, :edit, :coverpage]
+  before_action :initilize_album, except: [:index, :new, :create]
   respond_to :html, :js
   
   
@@ -70,6 +70,16 @@ class AlbumsController < ApplicationController
       @albums = current_user.albums.sort
     end
     response_with_format
+  end
+
+  def upvote 
+    @album.upvote_by current_user
+    redirect_to :back
+  end  
+
+  def downvote
+    @album.downvote_by current_user
+    redirect_to :back
   end
 
   private

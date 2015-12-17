@@ -1,6 +1,8 @@
 <ul id="picturelist">  
   <% @images.each do |image| %>
     <li class="image_view">
+    <%= link_to image.get_upvotes.size, like_user_album_image_path(params[:user_id], params[:id], image.id), method: :put %>
+      <%= link_to image.get_downvotes.size, dislike_user_album_image_path(params[:user_id], params[:id], image.id), method: :put %>
       <%= image.img_name %>
       <%= image_tag image.photo_url() %> 
       <%= link_to new_image_comment_path(image.id), remote:true do %>  

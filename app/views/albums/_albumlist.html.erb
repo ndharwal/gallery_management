@@ -15,8 +15,10 @@
           <%= album.title %>
           <%= link_to new_album_comment_path(album.id), remote: true, :class=>"modal-open" do %>    
               <span class="glyphicon glyphicon-comment"></span>
-          <% end %>      
-          <% image = albumcoverpage(album) %>
+          <% end %>
+          <%= link_to album.get_upvotes.size, like_user_album_path(album.user_id, album.id), method: :put %>
+          <%= link_to album.get_downvotes.size, dislike_user_album_path(album.user_id, album.id), method: :put  %>
+           <% image = albumcoverpage(album) %>
           <%if album.cover_id.present? && image.present? %>
             <%= link_to(image_tag(image.photo_url()), user_album_path(@user.id, album.id), remote: true, class: 'coverphoto' ) %>     
           <% else %>

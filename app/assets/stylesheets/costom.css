@@ -7,7 +7,7 @@
 {
 	font-family: 'caviar_dreamsbold';
 }
-.glyphicon-comment,.remove1
+.glyphicon-comment,.glyphicon-heart-empty,.remove1
 {
 	color: lightgreen;
 	font-size: 20px;
@@ -412,13 +412,13 @@ b
 	border-right: 2px lightgrey solid; 
 }
 #image_list{
-	overflow: scroll;
+
 	height:116px;
 	width: inherit;
 	margin-left: 123px;
 }
 #album_list{
-	overflow: scroll;
+	
 	height:116px;
 	width: inherit;
 	margin-left: 123px;

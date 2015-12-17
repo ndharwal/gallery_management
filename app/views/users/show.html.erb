@@ -13,7 +13,7 @@
     <h3>Your all albums is here</h3>
     <%= link_to "Click to see all albums", user_albums_path(@user.id), class: 'badge2' %><br>
     <% @user.albums.each do |album| %>
-      <p><%= link_to album.title, user_album_path(@user.id, album.id) %></p>
+      <p><%= link_to album.title, user_album_path(@user.id, album.id) %><b><%= album.get_likes.size %></b></p>
     <% end %> 
   </div>
   <div class="col-sm-2 all_users">

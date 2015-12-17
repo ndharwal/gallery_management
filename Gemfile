@@ -32,6 +32,7 @@ gem 'social-share-button', '~> 0.1.10'
 gem 'devise', '~> 3.5.2'
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'draper', '~> 2.1'
 gem 'carrierwave'
 gem "rmagick", "~> 2.13.1"

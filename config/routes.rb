@@ -3,8 +3,17 @@ Rails.application.routes.draw do
   devise_for :users
   get 'home/index'
   resources :users, only: :show do
-    resources :albums do
-      resources :images
+    resources :albums do 
+      member do
+       put "like", to: "albums#upvote"
+       put "dislike", to: "albums#downvote"
+      end
+      resources :images do
+        member do
+          put "like", to: "images#upvote"
+          put "dislike", to: "images#downvote"
+        end
+      end
     end
   end
   resources :images, only: :comments do

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   belongs_to :comment
   has_many :images, through: :albums
   has_many :comments, through: :albums 
+  acts_as_voter
   validates :fname, :lname, :contact, presence: true
   validates :contact, length: { minimum: 10, maximum: 10 }, numericality: true
   # Include default devise modules. Others available are:
