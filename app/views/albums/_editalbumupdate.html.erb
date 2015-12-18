@@ -1,4 +1,8 @@
 <h2 id="cen">Update and edit your Album informations</h2><br>
+<ol class="breadcrumb">
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "Albums", user_albums_path %></li>     
+</ol>
 <div class="jumbotron">
   <%= form_for @album, remote: true, url: {action: "update"}, html: {class: "form-horizontal newalbum col-sm-offset-2"} do |f| %>
      <%= render 'edit_createform', f: f %>

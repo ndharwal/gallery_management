@@ -4,10 +4,10 @@
 </div>
 <div class="container-fluid text-center">
   <div class="row">
-    <div class="col-sm-offset-1 col-sm-5 albums_count">
+    <div class="col-sm-offset-1 col-sm-3 albums_count">
       <h4>Albums</h4>
       <%= link_to image_tag("album3.png", :id => "album_list_open") %>
-      <p><%= @albums.count%></p>
+      <b><p><%= @albums.count%></p></b>
       <ul id="album_list">
         <% @albums.each do |album| %>
          <p><%= link_to album.title, user_album_path(current_user.id, album.id) %>
@@ -16,10 +16,10 @@
         <% end %>
       </ul>
     </div> 
-    <div class="col-sm-offset-1 col-sm-4 images_count">
+    <div class=" col-sm-3 images_count">
       <h4>Images</h4>
       <%= link_to image_tag("image1.png", :id =>"image_list_open") %>
-      <p><%= @images.count %></p>
+      <b><p><%= @images.count %></p></b>
       <ul id="image_list">
         <% @images.each do |image| %>
          <p><%= link_to image.img_name, user_album_image_path(current_user.id,image.album_id, image.id ) %>
@@ -27,6 +27,11 @@
          </p>
         <% end %>     
       </ul>
+    </div> 
+    <div class="col-sm-3 albums_count">
+      <h4>Total liked by you</h4>
+      <%= link_to image_tag("like.png", :id => "album_list_open") %>
+      <b><p><%= current_user.votes.size %></p></b>
     </div>  
   </div>
 </div>
@@ -53,7 +58,6 @@
     </div>
   </div>
 </div>
-
 <% if @comments.present? && session[:notify].nil? %>
   <script>
     $(window).load(function(){

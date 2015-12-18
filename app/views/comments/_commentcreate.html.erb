@@ -11,7 +11,7 @@
             <div class="field form-group">
               <%= f.label :comment, class: 'col-sm-2 control-label' %>
               <div class="col-sm-4">
-                <%= f.text_area :comment, class: 'form-control', required: true, col: "10", row: "5" %>
+                <%= f.text_area :comment, class: 'form-control', required: true, size: "40x5" %>
                 <% if @check_user_album.blank? %>
                   <%= f.hidden_field :active, :value => 'false' %>
                 <% else %>

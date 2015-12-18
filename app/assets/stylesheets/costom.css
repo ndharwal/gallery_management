@@ -82,7 +82,7 @@
 }
 .form-horizontal
 {
-	margin-top: 130px;
+	margin-top: 70px;
 	
 }
 .formpop
@@ -125,28 +125,13 @@
 	margin-left: 520px;
 }
 /*****Login and signup page css*****/
-.body
-{
-	position: absolute;                 /*login and signup background effect*/
-	top: -20px;
-	left: -20px;
-	right: -40px;
-	bottom: -40px;
-	background-image: url("bg34.jpg");
-	background-size: cover;
-	z-index: 0;
-	 filter: blur(20px);
-  	height: 800px;
- 	width: 1376px;
 
-}
 
 
 
 .e1,.p1
 {
-	background: transparent;
-	border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
+	
 	border-radius: 2px;
 	color: black;
 	font-family: 'Exo', sans-serif;
@@ -156,7 +141,6 @@
 }
 .e2,.p2
 {
-	border: 3px solid rgba(255,255,255,0.6); /*login and signup input box effect*/
 	border-radius: 2px;
 	color: black;
 	font-family: 'Exo', sans-serif;
@@ -165,11 +149,11 @@
 
 }
 .log
-{
-	background: #fff;
+{	
+	background:  #336699;
 	border: 1px solid #fff;
 	border-radius: 2px;
-	color: #a18d6c;                  /*login and signup button effect*/
+	color: white;                  /*login and signup button effect*/
 	font-family: 'Exo', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
@@ -232,8 +216,8 @@
 {	border-radius: 45px;
 	display:block;
 	border:2px solid gray;
-	width:344px;                  /*image gallery effect*/
-	height:343px;
+	width:260px;                  /*image gallery effect*/
+	height:270px;
 	opacity:1.7; /*initial opacity of images*/
 }
 #picturelist1
@@ -417,6 +401,10 @@ b
 	width: inherit;
 	margin-left: 123px;
 }
+#album_on_profile{
+	margin-left: 145px;
+	display: block;
+}
 #album_list{
 	
 	height:116px;
@@ -428,11 +416,14 @@ width:30px;
 height:35px;
 
 }
-.upload{
+#error123{
+	color:  #FF0000;
+}
+.all_albums{
+	height: 365px;
+	overflow: scroll;
+}
+.profile_top{
 
-	background:transparent;
-	text-decoration: none;
-	width: 91px;
-	height: 20px;
-	margin-top: 0px;
+	margin-top: 55px;
 }
