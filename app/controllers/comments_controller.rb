@@ -24,10 +24,6 @@ class CommentsController < ApplicationController
     end   
   end
 
-  def show 
-    @comment = @commentable.comments.get_comment(@commentable.id)
-  end
-
   def destroy
     @comments = @commentable.comments.get_comment(@commentable.id)
     comment = @comments.where(:id => params[:id]).first

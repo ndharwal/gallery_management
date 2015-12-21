@@ -1,0 +1,15 @@
+<% if @comments.present? %>
+  <% @comments.each do |comm| %>
+    <% comment_author = comment_author_name(comm.user_id) %>
+    <p> This comment is send by:
+    <b><%= link_to comment_author.decorate.
+    full_name, user_path(comm.user_id) %></b></p>
+    <p><%=comm.comment %>
+      <%= link_to "Accept", home_comment_popup_path(:comment_id =>comm.id, :value =>true), remote: true %> 
+    </p>
+  <% end %>
+<% else%>
+  <div id="no_comment_msg">
+    <p><b>There in no new comments<br>please close popup to go back</b></p>
+  </div>
+<% end %>

@@ -11,10 +11,7 @@ class User < ActiveRecord::Base
   mount_uploader :profile_pic, ProfilePicUploader
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable,:omniauthable, :omniauth_providers => [:facebook]
-  scope :current_user_skip, -> (user) { where.not(:id => user.id)} 
-  def full_name
-    try(:fname).to_s + " " + try(:lname).to_s  
-  end
+  scope :current_user_skip, -> (user) { where.not(:id => user.id)}  
 end
 
 

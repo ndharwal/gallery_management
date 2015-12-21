@@ -41,16 +41,10 @@
       <div class="modal-header">
        <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Notifications </h4>
+        <div id="popup_flash"></div>
       </div>
       <div class="modal-body"> 
-        <% @comments.each do |comm| %>
-          <% comment_author = comment_author_name(comm.user_id) %>
-          <p> This comment is send by:
-          <b><%= link_to comment_author.full_name, user_path(comm.user_id) %></b></p>
-          <p><%=comm.comment %>
-            <%= link_to "Accept", root_path(:comment_id =>comm.id, :value =>true) %> 
-          </p>
-        <% end %>
+        <%= render 'comment_popup' %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -60,7 +54,7 @@
 </div>
 <% if @comments.present? && session[:notify].nil? %>
   <script>
-    $(window).load(function(){
+    $(document).ready(function(){
       $('#myModal').modal('show');
     });
   </script>

@@ -8,3 +8,4 @@ class Image < ActiveRecord::Base
   scope :sort, -> { order(:created_at => :DESC ) }
 end
 
+    

@@ -64,6 +64,10 @@
 	height: 50px;
 	float:left;	
 }
+#ajax{
+
+	height: 
+}
 
 .profile
 {
@@ -427,3 +431,9 @@ height:35px;
 
 	margin-top: 55px;
 }
+#no_comment_msg{
+
+	text-align: center;
+}
+
+

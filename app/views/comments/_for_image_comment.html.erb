@@ -6,8 +6,7 @@
         <%= f.text_area :comment, class: 'form-control', required: true, col: "10", row: "5" %>
       </div>
     </div>
-    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />          
-    <div class="form-group action">        
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" /><div class="form-group action">        
       <div class="col-sm-offset-2 col-sm-10">
         <%= f.submit "submit", class: "btn log btn-default", id: "data_submit" %>
       </div>

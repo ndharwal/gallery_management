@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'home/index'
+  get 'home/comment_popup'
   resources :users, only: :show do
     resources :albums do 
       member do
