@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new
     respond_to do |format|
       format.js {}
-      format.html {}
+      format.html {redirect_to :back}
     end
   end
 
@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
     @comments = @commentable.comments.get_comment(@commentable.id)
     respond_to do |format|
       format.js {}
-      format.html {}
+      format.html {redirect_to :back}
     end
   end
 

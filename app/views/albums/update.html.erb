@@ -3,7 +3,7 @@
   <h2 id="cen">Update and edit your Album informations</h2><br>
   <div class="jumbotron">
     <%= form_for @album, url: {action: "update"}, :method => :delete, html: {class: "form-horizontal newalbum col-sm-offset-2"} do |f| %>
-       <%= render 'edit_createform', f: f %>
+      <%= render 'edit_createform', f: f %>
     <% end %>
   </div>
 </div>

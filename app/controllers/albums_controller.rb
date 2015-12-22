@@ -6,11 +6,15 @@ class AlbumsController < ApplicationController
     
   def index 
     @albums = @user.albums.sort
-     params[:search].present? ? @albums = @albums.search(params[:search]) : response_with_format 
+    @albums = params[:search].present? ? @albums.search(params[:search]) : @albums
   end
 
   def new
     @album = @user.albums.new
+    respond_to do |format|
+      format.js {}
+      format.html {}
+    end
   end
 
   def show

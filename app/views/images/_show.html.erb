@@ -2,10 +2,10 @@
   <div id="content">
     <ul id="picturelist">
       <% if @image.photo? %>
-        <% @image = Image.where(params[:id]).each do |p| %>
+        <% @image = Image.where(params[:id]).each do |image| %>
           <li class="image_view">
-            <%= p.img_name %>
-            <%= image_tag p.photo_url() %>            
+            <%= image.img_name %>
+            <%= image_tag image.photo_url() %>            
             <%= link_to new_album_image_path(:album_id) do %>    
               <span class="glyphicon glyphicon-open"></span>
             <% end %>

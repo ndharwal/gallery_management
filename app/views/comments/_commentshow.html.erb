@@ -1,12 +1,12 @@
-<% @comments.each do |com| %>
+<% @comments.each do |comment| %>
   <p class="alert alert-info">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;
     </a>
-    <%= com.comment %>
+    <%= comment.comment %>
     <% if params[:image_id].present? %>
-      <%= link_to "",image_comment_path(com.commentable_id, com.id), class: 'glyphicon glyphicon-remove comment_delete', remote: true, :method => :delete %>
+      <%= link_to "",image_comment_path(comment.commentable_id, comment.id), class: 'glyphicon glyphicon-remove comment_delete', remote: true, :method => :delete %>
     <% else %>
-      <%= link_to "",album_comment_path(com.commentable_id, com.id), class: 'glyphicon glyphicon-remove comment_delete', remote: true, :method => :delete %>
+      <%= link_to "",album_comment_path(comment.commentable_id, comment.id), class: 'glyphicon glyphicon-remove comment_delete', remote: true, :method => :delete %>
     <% end %>
   </p>
 <% end %>

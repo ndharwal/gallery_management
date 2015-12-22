@@ -1,11 +1,10 @@
 <% if @comments.present? %>
-  <% @comments.each do |comm| %>
-    <% comment_author = comment_author_name(comm.user_id) %>
-    <p> This comment is send by:
-    <b><%= link_to comment_author.decorate.
-    full_name, user_path(comm.user_id) %></b></p>
-    <p><%=comm.comment %>
-      <%= link_to "Accept", home_comment_popup_path(:comment_id =>comm.id, :value =>true), remote: true %> 
+  <% @comments.each do |comment| %>
+    <% comment_author =  %>
+    <p> This comment is sent by:
+    <b><%= link_to comment_author_name(comment.user_id), user_path(comment.user_id) %></b></p>
+    <p><%=comment.comment %>
+      <%= link_to "Accept", home_comment_popup_path(:comment_id =>comment.id), remote: true %> 
     </p>
   <% end %>
 <% else%>

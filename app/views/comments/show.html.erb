@@ -3,8 +3,8 @@
   </div>
   <div class="panel-body">
     <% if @comments.present? %>
-      <% @comments.each do |p| %>
-        <p><%= p.comment %></p>
+      <% @comments.each do |comment| %>
+        <p><%= comment.comment %></p>
      <% end %>
     <% end %>
   </div>

@@ -1,6 +1,6 @@
 module HomeHelper
 
-  def comment_author_name(comm)
-    user = User.where(:id => comm).first
+  def comment_author_name(user_id)
+    user = User.where(:id => user_id).first.decorate.full_name
   end
 end
